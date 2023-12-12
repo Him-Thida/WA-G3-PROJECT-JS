@@ -122,3 +122,34 @@ th, td{
     height: 40px;
     text-align: center;
 }
+form{
+    background: rgb(233, 232, 231);
+    margin: 20px 0px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+form h3{
+    text-align: center;
+}
+form div{
+    display: flex;
+    align-items: center;
+}
+form span{
+    width: 160px;
+    
+}
+form input{
+    width: 50%;
+    padding: 4px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    height: 30px;
+}
