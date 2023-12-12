@@ -1,22 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHD Online Shopping</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
 <body>
     <div class="container">
         <nav>
-            <div class="nav-left">
-                <img src="./images/logo.png">
-            </div>
-            <div class="nav-right">
+            <img src="./images/navbar-img/logo.png" alt="">
+            <span>POS SYSTEM</span>
+        </nav>
+        <div class="main">
+            <div class="aside-left">
                 <ul>
-                    <li></li>
+                    <li><a href="./pages/Bashborad.html"><i class="material-icons icons-color">dashboard</i>dashboard</a></li>
+                    <li><a href="#"><img src="./images/navbar-img/card.png"></i>Product</a></li>
+                    <li><a href="#"><i class="material-icons">view_comfy</i>Categories</a></li>
+                    <li><a href="#"><img src="./images/navbar-img/cart.png">Order</a></li>
                 </ul>
             </div>
-        </nav>
+            <div class="aside-right">
+                <div class="tool">
+                    <button><i class="material-icons">add_circle</i>Add Product</button>
+                    <div class="fitter">
+                        <span><b>Filter By Categories:</b> </span>
+                        <select name="categories">
+                            <option value="Books">Books</option>
+                            <option value="Books">Books</option>
+                            <option value="Books">Books</option>
+                            <option value="Books">Books</option>
+                            <option value="Books">Books</option>
+                            <option value="Books">Books</option>
+                            <option value="Books">Books</option>
+                        </select>
+                    </div>
+                    <div class="search">
+                        <input type="text" placeholder="Search Your Product">
+                        <button>search</button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Other</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0001</td>
+                            <td>Tiger on the mountain</td>
+                            <td>Books</td>
+                            <td>1</td>
+                            <td>3$</td>
+                            <td>
+                                <i class="material-icons view">visibility</i>
+                                <i class="material-icons delete">delete</i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="../js/shopping.js" defer></script>
     </div>
 </body>
+
 </html>

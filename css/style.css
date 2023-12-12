@@ -1,0 +1,122 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+nav{
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    background: orange;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+nav img{
+    width: 70px;
+}
+.main{
+    display: flex;
+}
+.main img{
+    width: 30px;
+}
+.main .aside-left{
+    width: 15%;
+    height: 100vh;
+    background: rgba(0, 128, 0, 0.252);
+}
+.main .aside-left ul{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    gap: 10px;
+}
+.main .aside-left ul li{
+    padding-left: 25px;
+    height: 35px;
+    list-style: none;
+}
+ul .icons-color{
+    font-size: 35px;
+}
+.main .aside-left ul li a{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+li:hover{
+    background: rgba(255, 166, 0, 0.686);
+}
+.aside-right{
+    width: 85%;
+    padding: 40px 50px;
+    overflow-x: auto;
+    
+    
+
+}
+.aside-right .tool{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tool button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 130px;
+    height: 35px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: orange;
+    color: white;
+}
+.tool .fitter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+select{
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid orange;
+    font-size: 16px;
+}
+.search {
+    display: flex;
+    justify-content: center;
+}
+.search input{
+    border-radius: 5px;
+    border: 1px solid orange;
+    outline: none;
+    padding: 3px;
+    font-size: 16px;
+    width: 150px;
+}
+.search button{
+    width: 60px;
+    font-size: 16px;
+}
+table{
+    margin-top: 40px;
+    border-collapse: collapse;
+}
+th, td{
+    border: 1px solid black;
+    width: 11rem;
+    height: 40px;
+    text-align: center;
+}
