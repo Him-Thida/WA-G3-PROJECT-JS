@@ -1,94 +1,62 @@
-*{
+body{
     padding: 0px;
     margin: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-
+    background: rgba(172, 255, 47, 0.236);
+    font-size: 18px;
 }
-body{
-    font-size: 20px;
-}
-.container nav{
+.container{
     display: flex;
-    background: orange;
-    padding: 0px 100px;
+    gap: 10px;
+    margin: 10px;
 }
-.container nav .nav-left{
-    width: 75%;
-}
-.container nav .nav-left img{
-    width: 70px;
-}
-.container nav ul{
-    display: flex;
-    align-items: center;
-
-}
-.container ul li{
-    list-style: none;
-    width: 150px;
-}
-.container a{
-    text-decoration: none;    
-}
-header{
-    display: flex;
-    justify-content: center;
-    padding: 0px 100px;
-    height: 30px;
-    margin-top: 20px;
-}
-header .header-center{
-    width: 100%;
-}
-header input{
-    width: 90%;
-    height: 25px;
-    padding: 5px ;
-    outline: none;
+.container .aside-left{
+    width: 20%;
+    height: 100%;
+    background: #fff;
     border-radius: 5px;
-    border: none;
-    background: rgba(128, 128, 128, 0.397);
-}
-header label{
-    background: orange;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    height: 35px;
-    width: 100px;
-    margin-left: -10px;
-}
-.header-left, .header-center, .header-right{
-    width: 33.3%;
-    display: flex;
-}
-.header-right{
-    display: flex;
-    justify-content: flex-end;
-
-}
-.header-right img{
-    width: 25px;
-    margin-left: 20px;
-}
-.card-list{
-    margin: 100px 0px;
-    padding: 0px 100px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 1%;
-
-}
-.card-list .card{
-    width: 24%;
-    border-radius: 10px;
-    background: rgba(255, 166, 0, 0.406);
+    padding: 0px 5px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 1%;
 }
-.card-list .card .card-title{
+#categories{
+    margin-top: 10px;
+    margin-bottom: 18px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.aside-left p{
+    background: greenyellow;
+    height: 30px;
+    display: flex;
+    align-items: center;  
+    margin-top: -10px;  
+    padding: 4px;
+    border-radius: 4px;
+   
+}
+.container .aside-center{
+    width: 60%;
+    background: #fff;
     padding: 10px;
+    border-radius: 5px;
+
+}
+.aside-center input{
+    width: 200px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid greenyellow;
+}
+.aside-center label{
+    background: greenyellow;
+    padding: 8px;
+    border-radius: 10px;
+}
+.container .aside-right{
+    width: 25%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
 }
