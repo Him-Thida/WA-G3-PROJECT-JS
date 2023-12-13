@@ -202,3 +202,10 @@ form button{
     border: none;
     border-radius: 4px; 
 }
+#back{
+    width: 31%;
+}
+#save-category{
+    margin-left: 10px;
+    width: 70%;
+}

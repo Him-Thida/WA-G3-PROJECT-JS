@@ -5,14 +5,22 @@ const form = document.querySelector('form')
 const btnAdd = document.querySelector('#addProduct');
 const savebtn = document.querySelector('#save-category');
 const descirptionCategory = document.querySelector('#categoryDescription');
-const nameCategory = document.querySelector('#categoryName')
-btnAdd.addEventListener('click', addCategory)
-savebtn.addEventListener('click', saveCategory)
+const nameCategory = document.querySelector('#categoryName');
+btnAdd.addEventListener('click', addCategory);
+savebtn.addEventListener('click', saveCategory);
+const backBtn = document.querySelector('#back');
+backBtn.addEventListener('click', backCategory);
 let i = 0;
+let run = false;
 let NumberIDcategory = 0;
 function clearForm() {
     nameCategory.value = '';
     descirptionCategory.value = '';
+}
+function backCategory(e){
+    e.preventDefault()
+    table.style.display = '';
+    form.style.display = 'none';
 }
 function saveLocalCategory() {
     localStorage.setItem('data', JSON.stringify(data));
@@ -33,9 +41,9 @@ function addCategory() {
 }
 function saveCategory(event) {
     table.style.display = ''
-    form.style.display = 'none'
-    NumberIDcategory += 1
-    event.preventDefault()
+    form.style.display = 'none';
+    NumberIDcategory += 1;
+    event.preventDefault();
     let obj = {};
     obj.id = NumberIDcategory;
     obj.category = nameCategory.value;
@@ -46,7 +54,7 @@ function saveCategory(event) {
     createTablerow()
 }
 function createTablerow() {
-    let storeCategory = data.category;
+    let storeCategory = data.category;    
     for (let obj of storeCategory){
         let row = document.createElement('tr');
         let tdID = document.createElement('td');
@@ -79,6 +87,7 @@ function createTablerow() {
         row.appendChild(tdName);
         row.appendChild(tdAction);
         tbody.appendChild(row)
+        run = true;
     }
 }
 let data = {
