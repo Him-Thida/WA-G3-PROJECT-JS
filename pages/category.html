@@ -44,68 +44,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>0001</td>
-                            <td>Books</td>
-                            <td>
-                                <i class="material-icons view">delete</i>
-                                <i class="material-icons delete">create</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0002</td>
-                            <td>Books</td>
-                            <td>
-                                <i class="material-icons view">delete</i>
-                                <i class="material-icons delete">create</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0003</td>
-                            <td>Books</td>
-                            <td>
-                                <i class="material-icons view">delete</i>
-                                <i class="material-icons delete">create</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0004</td>
-                            <td>Books</td>
-                            <td>
-                                <i class="material-icons view">delete</i>
-                                <i class="material-icons delete">create</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0005</td>
-                            <td>Books</td>
-                            <td>
-                                <i class="material-icons view">delete</i>
-                                <i class="material-icons delete">create</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0006</td>
-                            <td>Books</td>
-                            <td>
-                                <i class="material-icons view">delete</i>
-                                <i class="material-icons delete">create</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0007</td>
-                            <td>Books</td>
-                            <td>
-                                <i class="material-icons view">delete</i>
-                                <i class="material-icons delete">create</i>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
+                <form action="addCategory" style="display: none;">
+                    <h3>Add Category</h3>
+                    <div>
+                        <label for="category"><b>Category Name</b></label>
+                        <input type="text" placeholder="Category Name" id="categoryName">
+                    </div>
+                    <div>
+                        <label for="Descirption"><b>Descirption</b></label>
+                        <input type="text" placeholder="Descirption" id="categoryDescription">
+                    </div>
+                    <button id="save-category">Save</button>
 
+                </form>
             </div>
         </div>
-        <script src="./js/main.js" defer></script>
+        <script src="../js/category.js" defer></script>
     </div>
 </body>
 

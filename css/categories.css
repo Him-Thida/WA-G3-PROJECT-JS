@@ -1,13 +1,15 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
 }
-nav{
+
+nav {
     display: flex;
     align-items: center;
     padding-left: 30px;
@@ -17,60 +19,68 @@ nav{
     top: 0;
     z-index: 2;
 }
-nav img{
+
+nav img {
     width: 35px;
-    padding: 10px ;
+    padding: 10px;
 }
-.main{
+
+.main {
     display: flex;
 }
-.main img{
+
+.main img {
     width: 30px;
 }
-.main .aside-left{
+
+.main .aside-left {
     width: 15%;
     height: 100vh;
     background: #fff;
     box-shadow: 0px 0px 2px 2px orange;
 }
-.main .aside-left ul{
+
+.main .aside-left ul {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     color: #fff;
     gap: 10px;
 }
-.main .aside-left ul li{
+
+.main .aside-left ul li {
     padding-left: 25px;
     height: 40px;
     list-style: none;
 }
-ul .icons-color{
+
+ul .icons-color {
     font-size: 35px;
 }
-.main .aside-left ul li a{
+
+.main .aside-left ul li a {
     color: orange;
     display: flex;
     align-items: center;
     text-decoration: none;
 }
-li:hover{
+
+li:hover {
     letter-spacing: 1px;
 }
-.aside-right{
+
+.aside-right {
     width: 85%;
     padding: 40px 50px;
-    overflow-x: auto;
-    
-    
-
 }
-.aside-right .tool{
+
+.aside-right .tool {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.tool button{
+
+.tool button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,7 +93,8 @@ li:hover{
     background: orange;
     color: white;
 }
-.tool .fitter{
+
+.tool .fitter {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,7 +105,8 @@ li:hover{
     display: flex;
     justify-content: center;
 }
-.search input{
+
+.search input {
     border-radius: 5px;
     border: 1px solid orange;
     outline: none;
@@ -102,17 +114,91 @@ li:hover{
     font-size: 16px;
     width: 300px;
 }
-.search button{
+
+.search button {
     width: 60px;
     font-size: 16px;
 }
-table{
+
+table {
     margin-top: 40px;
     border-collapse: collapse;
 }
-th, td{
+
+th,
+td {
     border: 1px solid black;
-    width: 20rem;
+    width: 21rem;
     height: 40px;
     padding-left: 20px;
+}
+.action{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+td button{
+    background: white;
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 30px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #000;
+    box-shadow: 1px 1px 1px 1px orange;
+}
+button .icons-color{
+    height: 30px;
+    width: 40px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: orange;
+    color: white;
+    margin-right: 30px;
+}
+
+
+form {
+    box-shadow: 0px 0px 10px 1px orange;
+    border-radius: 10px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+    width: 400px;
+    padding: 30px;
+    margin: 70px 250px;
+}
+
+form label {
+    width: 150px;
+}
+form div {
+    display: flex;
+    align-items: center;
+}
+form h3{
+    text-align: center;
+    color: orange;
+}
+form input {
+    width: 300px;
+    height: 30px;
+    padding: 5px;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    border: 1px solid orange;
+}
+form button{
+    height: 40px;
+    font-size: 17px;
+    padding: px;
+    background: orange;
+    border: none;
+    border-radius: 4px; 
 }
