@@ -3,13 +3,15 @@ let tbody = document.querySelector("tbody");
 const aside_right = document.querySelector(".aside-right");
 const form = document.querySelector("form");
 const btnAdd = document.querySelector("#addProduct");
-const savebtn = document.querySelector("#save-category");
+const saveBtn = document.querySelector("#save-category");
 const descirptionCategory = document.querySelector("#categoryDescription");
 const nameCategory = document.querySelector("#categoryName");
 btnAdd.addEventListener("click", addCategory);
-savebtn.addEventListener("click", saveCategory);
+const search = document.querySelector('#search');
+saveBtn.addEventListener("click", saveCategory);
 const backBtn = document.querySelector("#back");
 backBtn.addEventListener("click", backCategory);
+search.addEventListener('input', searchCategory)
 let i = 0;
 let run = false;
 let NumberIDcategory = 0;
@@ -33,6 +35,16 @@ function loadLocalCategory() {
   } else {
     saveLocalCategory();
   }
+}
+function searchCategory(){
+    for (let searchCat of tbody.children){
+        if (searchCat.children[1].textContent.toLowerCase().includes(search.value.toLowerCase())){
+            searchCat.style.display = '';
+         
+        }else{
+            searchCat.style.display = 'none'
+        }
+    }
 }
 function addCategory() {
   table.style.display = "none";
