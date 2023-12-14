@@ -3,12 +3,10 @@
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 .container {
     display: flex;
     flex-direction: column;
 }
-
 nav {
     display: flex;
     align-items: center;
@@ -36,8 +34,8 @@ nav img {
 .main .aside-left {
     width: 15%;
     height: 100vh;
-    background: #fff;
-    box-shadow: 0px 0px 2px 2px orange;
+    /* background: rgb(78, 76, 76); */
+    box-shadow: 0px 3px 2px 2px orange;
 }
 
 .main .aside-left ul {
@@ -161,6 +159,9 @@ button .icons-color{
 
 
 form {
+    position: fixed;
+    top: 100px;
+    background: #fff;
     box-shadow: 0px 0px 10px 1px orange;
     border-radius: 10px;
     gap: 20px;
@@ -171,6 +172,7 @@ form {
     width: 400px;
     padding: 30px;
     margin: 70px 250px;
+    color: #000;
 }
 
 form label {
