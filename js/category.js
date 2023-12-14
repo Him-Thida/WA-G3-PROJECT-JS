@@ -1,31 +1,41 @@
 const table = document.querySelector("table");
 let tbody = document.querySelector("tbody");
+let aside_left = document.querySelector('.aside-left');
 const aside_right = document.querySelector(".aside-right");
 const form = document.querySelector("form");
 const btnAdd = document.querySelector("#addProduct");
 const saveBtn = document.querySelector("#save-category");
 const descirptionCategory = document.querySelector("#categoryDescription");
 const nameCategory = document.querySelector("#categoryName");
-btnAdd.addEventListener("click", addCategory);
 const search = document.querySelector("#search");
-saveBtn.addEventListener("click", saveCategory);
 const backBtn = document.querySelector("#back");
+btnAdd.addEventListener("click", addCategory);
+saveBtn.addEventListener("click", saveCategory);
 backBtn.addEventListener("click", backCategory);
 search.addEventListener("input", searchCategory);
 let i = 0;
 let NumberIDcategory = 0;
+//==============Function for clear input=============//
 function clearForm() {
   nameCategory.value = "";
   descirptionCategory.value = "";
 }
+
+//==============Function back to list of Category=============//
 function backCategory(e) {
   e.preventDefault();
   table.style.display = "";
   form.style.display = "none";
+  aside_left.style.background = '#fff'
+  document.body.style.backgroundColor = '#fff';
+  document.body.style.color = '#000';
+  clearForm();
 }
+//==============Save Data to localStorage=============//
 function saveLocalCategory() {
   localStorage.setItem("data", JSON.stringify(data));
 }
+//==============Function Load data from localStorage=============//
 function loadLocalCategory() {
   let loadProducts = JSON.parse(localStorage.getItem("data"));
   if (loadProducts != undefined) {
@@ -35,6 +45,7 @@ function loadLocalCategory() {
     saveLocalCategory();
   }
 }
+//==============Function search Category=============//
 function searchCategory() {
   for (let searchCat of tbody.children) {
     if (searchCat.children[1].textContent.toLowerCase().includes(search.value.toLowerCase())) {
@@ -44,20 +55,31 @@ function searchCategory() {
     }
   }
 }
+//==============Function delete category=============//
 function deleteCategory(e) {
   let listNameOfCategory = data.category;
   let nameOfCategory = e.target.closest('tr');
   for (let name of listNameOfCategory) {
     if (name.category == nameOfCategory.children[1].textContent) {
       nameOfCategory.remove()
-
+      listNameOfCategory.pop();
+      saveLocalCategory()
     }
   }
 }
+
+//==============Function add category=============//
 function addCategory() {
   form.style.display = "";
+  aside_left.style.background = 'rgb(78, 76, 76)';
+  document.body.style.backgroundColor = 'rgb(78, 76, 76)';
+  document.body.style.color = '#fff';
+  // document.body.style.position = 'fixed';
 }
 function saveCategory(event) {
+  aside_left.style.background = '#fff'
+  document.body.style.backgroundColor = '#fff';
+  document.body.style.color = '#000';
   event.preventDefault();
   form.style.display = "none";
   let run = true;
@@ -122,6 +144,7 @@ function saveCategory(event) {
     clearForm();
   }
 }
+//==============Function craete category list as table=============//
 function createTablerow() {
   let storeCategory = data.category;
   for (let obj of storeCategory) {
@@ -164,4 +187,5 @@ let data = {
   category: [],
   categoryID: null,
 };
+//==============Function for load Data to localStorage=============//
 loadLocalCategory();
