@@ -1,6 +1,5 @@
 //==============Save Data to localStorage=============//
 function saveLocalCategory() {
-    ``
     localStorage.setItem("data", JSON.stringify(data));
 }
 //==============Function Load data from localStorage=============//
