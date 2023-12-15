@@ -78,7 +78,6 @@ function addCategory() {
   form.style.display = "";
   aside_left.style.background = 'rgb(78, 76, 76)';
   document.body.style.backgroundColor = 'rgb(78, 76, 76)';
-  document.body.style.color = '#fff';
 }
 
 function saveCategory(event) {

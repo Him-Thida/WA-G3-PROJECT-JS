@@ -1,13 +1,15 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
 }
-nav{
+
+nav {
     display: flex;
     align-items: center;
     padding-left: 30px;
@@ -17,58 +19,68 @@ nav{
     top: 0;
     z-index: 2;
 }
-nav img{
+
+nav img {
     width: 35px;
-    padding: 10px ;
+    padding: 10px;
 }
-.main{
+
+.main {
     display: flex;
 }
-.main img{
+
+.main img {
     width: 30px;
 }
-.main .aside-left{
+
+.main .aside-left {
     width: 15%;
     height: 100vh;
     background: #fff;
     box-shadow: 0px 0px 2px 2px orange;
 }
-.main .aside-left ul{
+
+.main .aside-left ul {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     color: #fff;
     gap: 10px;
 }
-.main .aside-left ul li{
+
+.main .aside-left ul li {
     padding-left: 25px;
     height: 40px;
     list-style: none;
 }
 
-.main .aside-left ul li a{
+.main .aside-left ul li a {
     color: orange;
     display: flex;
     align-items: center;
     text-decoration: none;
 }
-li:hover{
+
+li:hover {
     letter-spacing: 1px;
 }
-.aside-right{
+
+.aside-right {
     width: 85%;
     padding: 40px 50px;
     overflow-x: auto;
-    
-    
+
+
 
 }
-.aside-right .tool{
+
+.aside-right .tool {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.tool button{
+
+.tool button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,24 +93,28 @@ li:hover{
     background: orange;
     color: white;
 }
-.tool .fitter{
+
+.tool .fitter {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50%;
 }
-select{
+
+select {
     width: 200px;
     height: 35px;
     border-radius: 5px;
     border: 1px solid orange;
     font-size: 16px;
 }
+
 .search {
     display: flex;
     justify-content: center;
 }
-.search input{
+
+.search input {
     border-radius: 5px;
     border: 1px solid orange;
     outline: none;
@@ -106,48 +122,114 @@ select{
     font-size: 16px;
     width: 150px;
 }
-.search button{
+
+.search button {
     width: 60px;
     font-size: 16px;
 }
-table{
+
+table {
     margin-top: 40px;
     border-collapse: collapse;
 }
-th, td{
+
+th,
+td {
     border: 1px solid black;
     width: 11rem;
     height: 40px;
     text-align: center;
 }
-form{
-    background: rgb(233, 232, 231);
-    margin: 20px 0px;
+.action{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+td button{
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    height: 30px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #000;
+    box-shadow: 1px 1px 1px 1px orange;
+}
+button .icons-color{
+    height: 30px;
+    width: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: orange;
+    color: white;
+}
+form {
+    width: 30%;
+    position: fixed;
+    background: #fff;
+    box-shadow: 0px 0px 10px 1px orange;
+    margin: 20px 17%;
+    top: 80px;
     padding: 10px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 40px;
     justify-content: center;
     align-items: center;
 }
-form h3{
+
+form h3 {
     text-align: center;
 }
-form div{
+form div {
     display: flex;
     align-items: center;
 }
-form span{
-    width: 160px;
-    
+
+form .product-data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
+
+form .product-data label {
+    width: 150px;
+}
+
 form input{
-    width: 50%;
+    box-shadow: 0px 0px 10px 1px orange;
     padding: 4px;
     font-size: 15px;
-    border: none;
-    outline: none;
+    border: 1px solid orange;
+    outline: orange;
     border-radius: 5px;
     height: 30px;
+}
+form select{
+    height: 40px;
+    box-shadow: 0px 0px 10px 1px orange;
+
+}
+form .action{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#back{
+    width: 140px;
+}
+#save{
+    width: 200px;
+}
+form button{
+    font-size: 16px;
+    height: 40px;
+    background: orange;
+    border: none;
+    border-radius: 5px;
+    color: white;
 }
