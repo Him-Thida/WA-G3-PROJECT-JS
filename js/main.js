@@ -1,32 +1,46 @@
+//==============Save Data to localStorage=============//
+function saveLocalCategory() {
+  localStorage.setItem("data", JSON.stringify(data));
+}
+//==============Function Load data from localStorage=============//
+function loadLocalCategory() {
+  let loadProducts = JSON.parse(localStorage.getItem("data"));
+  if (loadProducts != undefined) {
+    data = loadProducts;
+    completeFilterCategory()
+  } else {
+    saveLocalCategory();
+  }
+}
+let categoryFilter = document.querySelector(".categories");
 let addProduct = document.querySelector('#addProduct');
-addProduct.addEventListener('click', createProduct)
-// console.log(addProduct)
-// function saveArrayObj() {
-//     localStorage.setItem('arrayObj', JSON.stringify(arrayObj));
-// }
-// function loadArrayObj() {
-//     JSON.parse(localStorage.getItem('productsData'));
-// }
-// function createCardObj(){
-//     for (let obj of arrayObj){
-//         createCard(obj)
-//         console.log(obj)
-//     }
-// }   
-// createCardObj()
-// function createCard(obj){
-//     let card = document.createElement('div');
-//     card.className = 'card';
-//     let image = document.createElement('img');
-//     image.src = obj.image;
-//     card.appendChild(image);
-    
-// }
-function createProduct(){
-    let table = document.querySelector('table');
-    table.remove()
-    
+let tbody = document.querySelector('tbody');
+categoryFilter.addEventListener('change', filterProductWithCategory)
+function filterProductWithCategory(){
+    for (let tr of tbody.children){
+        if (tr.children[2].textContent == categoryFilter.value){
+            tr.style.display = '';
+        }else if(categoryFilter.value == 'All Category'){
+            tr.style.display = '';
+        }
+        else{
+            tr.style.display = 'none';
+        }
+    }
+}
+function completeFilterCategory(){
+    let categoryName = data.category;
+    for (let name of categoryName){
+        let option = document.createElement('option');
+        option.textContent = name.category;
+        option.setAttribute('value', name.category);
+        categoryFilter.appendChild(option)
+    }
 }
 
-// saveArrayObj()
-// loadArrayObj()
+let data = {
+  product: [],
+  category: [],
+  categoryID: null,
+};
+loadLocalCategory();
