@@ -82,11 +82,19 @@ function searchText() {
     };
 };
 
-function addProductToList(e) {
-    formAddProduct.style.display = '';
+function hide(){
     aside_left.style.background = 'rgb(78, 76, 76)';
     document.body.style.backgroundColor = 'rgb(78, 76, 76)';
     navbar.style.backgroundColor = 'rgb(78, 76, 76)';
+}
+function show(){
+    aside_left.style.background = '#fff';
+    document.body.style.backgroundColor = '#fff';
+    navbar.style.backgroundColor = '#fff';
+}
+function addProductToList(e) {
+    formAddProduct.style.display = '';
+    hide()
 }
 function saveProduct(e) {
     e.preventDefault();
@@ -147,9 +155,7 @@ function saveProduct(e) {
         tbody.appendChild(tr)
     }
     formAddProduct.style.display = 'none';
-    aside_left.style.background = '#fff';
-    document.body.style.backgroundColor = '#fff';
-    navbar.style.backgroundColor = '#fff';
+    show()
     clearInput()
 }
 function createTable() {
