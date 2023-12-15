@@ -61,62 +61,41 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>0001</td>
-                            <td>Tiger on the mountain</td>
-                            <td>Book</td>
-                            <td>1</td>
-                            <td>3$</td>
-                            <td>
-                                <i class="material-icons view">visibility</i>
-                                <i class="material-icons delete">delete</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0001</td>
-                            <td>Seven habit for people</td>
-                            <td>Watch</td>
-                            <td>1</td>
-                            <td>3$</td>
-                            <td>
-                                <i class="material-icons view">visibility</i>
-                                <i class="material-icons delete">delete</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0001</td>
-                            <td>Tiger on the mountain</td>
-                            <td>Book</td>
-                            <td>1</td>
-                            <td>3$</td>
-                            <td>
-                                <i class="material-icons view">visibility</i>
-                                <i class="material-icons delete">delete</i>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
-                <form action="addProduct">
-                    <h3>Add Products to system</h3>
-                    <div>
-                        <span>Product Name</span>
-                        <input type="text" placeholder="product name" />
-                    </div>
-                    <div>
-                        <span>Category</span>
-                        <input type="text" placeholder="category" />
-                    </div>
-                    <div>
-                        <span>Net price</span>
-                        <input type="text" placeholder="product name" />
-                    </div>
-                    <div>
-                        <span>Net price</span>
-                        <input type="text" placeholder="product name" />
-                    </div>
-                    <div>
-                        <span>Net price</span>
-                        <input type="text" placeholder="product name" />
+                <form action="addProduct" style="display: none;">
+                    <h3>Add Products</h3>
+                    <div class="product-data">
+                        <div>
+                            <label>Product Name</label>
+                            <input type="text" placeholder="product name" class="name" />
+                        </div>
+                        <div>
+                            <label>Category</label>
+                            <select name="category" class="chooseCategory">
+                                <option value="">Choose Category</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Net price</label>
+                            <input type="number" placeholder="Net Price" class="price" />
+                        </div>
+                        <div>
+                            <label>Gross price</label>
+                            <input type="number" placeholder="Gross Price" class="gross" />
+                        </div>
+                        <div>
+                            <label>Quantity</label>
+                            <input type="number" placeholder="Quantity" class="quantity" />
+                        </div>
+                        <div>
+                            <label>Descrition</label>
+                            <input type="text" placeholder="Descrition" class="description" />
+                        </div>
+                        <div class="action">
+                            <button id="back">Back</button>
+                            <button id="save">Save Product</button>
+                        </div>
                     </div>
                 </form>
             </div>

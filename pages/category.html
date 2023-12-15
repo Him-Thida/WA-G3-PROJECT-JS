@@ -1,115 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CHD Online Shopping</title>
-    <link rel="stylesheet" href="../css/categories.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-  </head>
 
-  <body>
-    <div class="container">
-        <nav>
-            <img src="../images/navbar-img/card.png" alt="" />
-            <span><b>POS SYSTEM</b></span>
-        </nav>
-        <div class="main">
-            <div class="aside-left">
-                <ul>
-                    <li><a href="./Bashborad.html"><img src="../images/navbar-img/bashboard.png" />Bashboard</a></li>
-                    <li><a href="../index.html"><img src="../images/navbar-img/product.png" />Products</a></li>
-                    <li><a href="#"><img src="../images/navbar-img/category.png" />Categories</a></li>
-                    <li><a href="./order.html"><img src="../images/navbar-img/order.png" />Order</a></li>
-                </ul>
-            </div>
-            <div class="aside-right">
-                <div class="tool">
-                    <button id="addProduct">
-                        <i class="material-icons">add_circle</i>Add Categories
-                    </button>
-                    <div class="search">
-                        <input type="text" placeholder="Search Your Product" id="search" />
-                        <button>search</button>
-                    </div>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Categories ID</th>
-                            <th>Categories Name</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <form action="addCategory" style="display: none;">
-                    <h3>Add Category</h3>
-                    <div>
-                        <label for="category"><b>Category Name</b></label>
-                        <input type="text" placeholder="Category Name" id="categoryName">
-                    </div>
-                    <div>
-                        <label for="Descirption"><b>Descirption</b></label>
-                        <input type="text" placeholder="Descirption" id="categoryDescription">
-                    </div>
-                    <div>
-                        <button id="back">Back</button>
-                        <button id="save-category">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="aside-right">
-          <div class="tool">
-            <button id="addProduct">
-              <i class="material-icons">add_circle</i>Add Categories
-            </button>
-            <div class="search">
-              <input type="text" placeholder="Search Your Product" />
-              <button>search</button>
-            </div>
-          </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Categories ID</th>
-                <th>Categories Name</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-          <form action="addCategory" style="display: none">
-            <h3>Add Category</h3>
-            <div>
-              <label for="category"><b>Category Name</b></label>
-              <input
-                type="text"
-                placeholder="Category Name"
-                id="categoryName"
-              />
-            </div>
-            <div>
-              <label for="Descirption"><b>Descirption</b></label>
-              <input
-                type="text"
-                placeholder="Descirption"
-                id="categoryDescription"
-              />
-            </div>
-            <div>
-              <button id="back">Back</button>
-              <button id="save-category">Save</button>
-            </div>
-          </form>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHD Online Shopping</title>
+  <link rel="stylesheet" href="../css/categories.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <img src="../images/navbar-img/card.png" />
+      <span><b>POS SYSTEM</b></span>
+    </nav>
+    <div class="main">
+      <div class="aside-left">
+        <ul>
+          <li><a href="./Bashborad.html"><img src="../images/navbar-img/bashboard.png" />Bashboard</a></li>
+          <li><a href="../index.html"><img src="../images/navbar-img/product.png" />Products</a></li>
+          <li><a href="#"><img src="../images/navbar-img/category.png" />Categories</a></li>
+          <li><a href="./order.html"><img src="../images/navbar-img/order.png" />Order</a></li>
+        </ul>
       </div>
-      <script src="../js/category.js" defer></script>
+      <div class="aside-right">
+        <div class="tool">
+          <button id="addProduct">
+            <i class="material-icons">add_circle</i>Add Categories
+          </button>
+          <div class="search">
+            <input type="text" placeholder="Search Your Product" id="search" />
+            <button>search</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Categories ID</th>
+              <th>Categories Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
+        <form action="addCategory" style="display: none;">
+          <h3>Add Category</h3>
+          <div>
+            <label for="category"><b>Category Name</b></label>
+            <input type="text" placeholder="Category Name" id="categoryName">
+          </div>
+          <div>
+            <label for="Descirption"><b>Descirption</b></label>
+            <input type="text" placeholder="Descirption" id="categoryDescription">
+          </div>
+          <div>
+            <button id="back">Cancal</button>
+            <button id="save-category">Save</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </body>
+  </div>
+  <script src="../js/category.js" defer></script>
+  </div>
+</body>
 </html>
