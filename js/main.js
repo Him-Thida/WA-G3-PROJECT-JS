@@ -15,7 +15,11 @@ function loadLocalCategory() {
 let categoryFilter = document.querySelector(".categories");
 let addProduct = document.querySelector('#addProduct');
 let tbody = document.querySelector('tbody');
+let input = document.querySelector('input');
+let rows = document.querySelectorAll('Table tbody tr');
+let buttonDelte=document.querySelectorAll('.delete');
 categoryFilter.addEventListener('change', filterProductWithCategory)
+input.addEventListener('input', searchText);
 function filterProductWithCategory(){
     for (let tr of tbody.children){
         if (tr.children[2].textContent == categoryFilter.value){
@@ -37,7 +41,23 @@ function completeFilterCategory(){
         categoryFilter.appendChild(option)
     }
 }
-
+function deLete(event) {
+    event.target.closest('tr').remove();
+};
+for (let btn of buttonDelte){
+    btn.addEventListener('click', deLete)
+}
+function searchText(){
+    let searchText = input.value.toLowerCase();
+    for (let row of rows) {
+        let secondColumnText = row.children[1].textContent.toLowerCase();
+        if (secondColumnText.includes(searchText)) {
+            row.style.display = ''; 
+        } else {
+            row.style.display = 'none'; 
+        }
+    };  
+};
 let data = {
   product: [],
   category: [],
