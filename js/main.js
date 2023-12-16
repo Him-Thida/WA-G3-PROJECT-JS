@@ -32,6 +32,16 @@ let descriptionInput = document.querySelector('.description');
 let backBtn = document.querySelector('#back');
 let okbtn = document.querySelector('#ok');
 let alert = document.querySelector('.alert');
+let showDetail = document.querySelector('.showDetail');
+let idPro = document.querySelector('.idPro');
+let nameProduct = document.querySelector('.namePro');
+let descriptionPro = document.querySelector('.descriptionPro');
+let categoryNamePro = document.querySelector('.categoryNamePro');
+let quantityPro = document.querySelector('.quantityPro');
+let pricePro = document.querySelector('.pricePro');
+let grossPricePro = document.querySelector('.grossPricePro');
+let closeBtn = document.querySelector('#close');
+closeBtn.addEventListener('click', hideDetailProduct)
 okbtn.addEventListener('click', okAlert);
 backBtn.addEventListener('click', back)
 categoryFilter.addEventListener('change', filterProductWithCategory);
@@ -76,8 +86,8 @@ function completeFilterCategory() {
 //==============Function Delete prodcut name =============//
 function deLete(e) {
     let namedelete = e.target.closest('tr').children[1].textContent;
-    for (let obj of data.product){
-        if (obj.name == namedelete){
+    for (let obj of data.product) {
+        if (obj.name == namedelete) {
             data.product.pop(obj);
             saveLocalCategory()
             e.target.closest('tr').remove();
@@ -87,12 +97,30 @@ function deLete(e) {
 };
 
 //==============Function detail product name =============//
-function detail(){
-    console.log('ksfsk')
-    console.log(data.product)
+function detail(e) {
+    let namePro = e.target.closest('tr').children[1].textContent;
+    showDetail.style.display = '';
+    hide()
+    for (let loop of data.product) {
+        if (loop.name == namePro) {
+            idPro.textContent = 'Product ID : ' + loop.id;
+            nameProduct.textContent = 'Product Name : ' + loop.name;
+            descriptionPro.textContent = 'Description : ' + loop.description;
+            categoryNamePro.textContent = 'Category Name : ' + loop.category;
+            quantityPro.textContent = 'Quantity : ' + loop.quantity;
+            pricePro.textContent = 'Price : ' + loop.price;
+            grossPricePro.textContent = 'Grose Price : ' + loop.grossPrice;
+        }
+    }
+
 }
 
 
+//==============Function close detail =============//
+function hideDetailProduct() {
+    showDetail.style.display = 'none';
+    show()
+}
 //==============Function search product name =============//
 function searchText() {
     let searchText = inputSearch.value.toLowerCase();
@@ -105,12 +133,12 @@ function searchText() {
         }
     };
 };
-function back(e){
+function back(e) {
     e.preventDefault();
     show()
     formAddProduct.style.display = 'none';
 }
-function hide(){
+function hide() {
     aside_left.style.background = 'rgb(78, 76, 76)';
     document.body.style.backgroundColor = 'rgb(78, 76, 76)';
     navbar.style.backgroundColor = 'rgb(78, 76, 76)';
@@ -119,12 +147,12 @@ function hide(){
     inputSearch.style.backgroundColor = 'rgb(78, 76,76)';
     categoryFilter.style.backgroundColor = 'rgb(78 , 76, 76)';
     let action = document.querySelectorAll('.icons-color');
-    for (let act of action){
+    for (let act of action) {
         act.style.backgroundColor = 'rgb(78, 76,76)';
         act.parentElement.style.backgroundColor = 'rgb(78, 76,76)';
     }
 }
-function show(){
+function show() {
     aside_left.style.background = '#fff';
     document.body.style.backgroundColor = '#fff';
     navbar.style.backgroundColor = '#fff';
@@ -133,7 +161,7 @@ function show(){
     inputSearch.style.backgroundColor = '#fff';
     categoryFilter.style.backgroundColor = '#fff';
     let action = document.querySelectorAll('.icons-color');
-    for (let act of action){
+    for (let act of action) {
         act.style.backgroundColor = 'orange';
         act.parentElement.style.backgroundColor = '#fff';
     }
@@ -144,10 +172,10 @@ function addProductToList(e) {
 }
 function saveProduct(e) {
     let store = data.productID;
-    if (data.productID == null){
+    if (data.productID == null) {
         store = 1;
         data.productID = store;
-    }else{
+    } else {
         store += 1
         data.productID = store;
     }
@@ -173,7 +201,7 @@ function saveProduct(e) {
         let tdDes = document.createElement('td');
         let tdAction = document.createElement("td");
         tdAction.className = "action";
-        tdAction.setAttribute('id','action')
+        tdAction.setAttribute('id', 'action')
         let delButton = document.createElement("button");
         let viewButton = document.createElement("button");
         let iconDel = document.createElement("i");
@@ -213,11 +241,11 @@ function saveProduct(e) {
         formAddProduct.style.display = 'none';
         show()
         clearInput()
-    }else{
+    } else {
         alert.style.display = '';
     }
 }
-function okAlert(e){
+function okAlert(e) {
     e.target.parentElement.style.display = 'none';
 }
 function createTable() {
@@ -242,6 +270,7 @@ function createTable() {
         viewButton.setAttribute("id", "detail");
         delButton.setAttribute("id", "delete");
         delButton.addEventListener("click", deLete);
+        viewButton.addEventListener('click', detail);
         iconDel.className = "material-icons icons-color";
         iconView.className = "material-icons icons-color";
         iconDel.textContent = "delete";
@@ -249,11 +278,11 @@ function createTable() {
         iconView.textContent = "create";
         spanView.textContent = "Detail";
         tdId.textContent = element.id;
-        tdName.textContent =element.name;
-        tdCategory.textContent =element.category;
-        tdQuantity.textContent =element.quantity;
-        tdPrice.textContent =element.price;
-        tdDes.textContent =element.description;
+        tdName.textContent = element.name;
+        tdCategory.textContent = element.category;
+        tdQuantity.textContent = element.quantity;
+        tdPrice.textContent = element.price;
+        tdDes.textContent = element.description;
         delButton.appendChild(iconDel);
         delButton.appendChild(spanDel);
         viewButton.appendChild(iconView);
@@ -279,7 +308,7 @@ function clearInput() {
 }
 let data = {
     product: [],
-    productID : null,
+    productID: null,
     category: [],
     categoryID: null,
 };
