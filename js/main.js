@@ -107,9 +107,18 @@ function addProductToList(e) {
     hide()
 }
 function saveProduct(e) {
+    let store = data.productID;
+    if (data.productID == null){
+        store = 1;
+        data.productID = store;
+    }else{
+        store += 1
+        data.productID = store;
+    }
     e.preventDefault();
     let obj = {};
     if (nameInput.value && selectOption.value && quantityInput.value && priceInput.value !== '') {
+        obj.id = store;
         obj.name = nameInput.value;
         obj.category = selectOption.value;
         obj.quantity = quantityInput.value;
@@ -143,7 +152,7 @@ function saveProduct(e) {
         spanDel.textContent = "Delete";
         iconView.textContent = "create";
         spanView.textContent = "Detail";
-        tdId.textContent = 1;
+        tdId.textContent = store;
         tdName.textContent = nameInput.value;
         tdCategory.textContent = selectOption.value;
         tdQuantity.textContent = quantityInput.value + '$';
@@ -196,7 +205,7 @@ function createTable() {
         spanDel.textContent = "Delete";
         iconView.textContent = "create";
         spanView.textContent = "Detail";
-        tdId.textContent = 1;
+        tdId.textContent = element.id;
         tdName.textContent =element.name;
         tdCategory.textContent =element.category;
         tdQuantity.textContent =element.quantity;
@@ -228,6 +237,7 @@ function clearInput() {
 }
 let data = {
     product: [],
+    productID : null,
     category: [],
     categoryID: null,
 };
