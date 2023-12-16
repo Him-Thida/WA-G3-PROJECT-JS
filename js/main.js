@@ -18,7 +18,6 @@ let formAddProduct = document.querySelector('form');
 let addProduct = document.querySelector('#addProduct');
 let tbody = document.querySelector('tbody');
 let inputSearch = document.querySelector('#search');
-let rows = document.querySelectorAll('Table tbody tr');
 let buttonDelte = document.querySelectorAll('.delete');
 let navbar = document.querySelector('nav');
 let aside_left = document.querySelector('.aside-left');
@@ -76,7 +75,7 @@ for (let btn of buttonDelte) {
 
 function searchText() {
     let searchText = inputSearch.value.toLowerCase();
-    for (let row of rows) {
+    for (let row of tbody.children) {
         let secondColumnText = row.children[1].textContent.toLowerCase();
         if (secondColumnText.includes(searchText)) {
             row.style.display = '';
