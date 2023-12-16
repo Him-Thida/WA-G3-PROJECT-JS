@@ -167,26 +167,32 @@ button .icons-color{
     color: white;
 }
 form {
-    width: 30%;
     position: fixed;
+    top: 100px;
     background: #fff;
-    box-shadow: 0px 0px 10px 1px orange;
-    margin: 20px 17%;
-    top: 80px;
-    padding: 10px;
-    border-radius: 5px;
+    box-shadow: 0px 0px 5px 1px orange;
+    border-radius: 10px;
+    gap: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 40px;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 60%;
+    padding: 20px;
+    left: 19%;
 }
-
+form #logo{
+    height: 100px;
+    width: 100px;
+    margin-left: 44%;
+    margin-top: 3%;
+}
 form h3 {
     text-align: center;
 }
+
 form div {
     display: flex;
+    
     align-items: center;
 }
 

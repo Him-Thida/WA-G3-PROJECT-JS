@@ -29,6 +29,8 @@ let priceInput = document.querySelector('.price');
 let grossInput = document.querySelector('.gross');
 let quantityInput = document.querySelector('.quantity');
 let descriptionInput = document.querySelector('.description');
+let backBtn = document.querySelector('#back');
+backBtn.addEventListener('click', back)
 categoryFilter.addEventListener('change', filterProductWithCategory);
 inputSearch.addEventListener('input', searchText);
 addProduct.addEventListener('click', addProductToList);
@@ -80,16 +82,25 @@ function searchText() {
         }
     };
 };
-
+function back(e){
+    e.preventDefault();
+    show()
+    formAddProduct.style.display = 'none';
+}
 function hide(){
+    
     aside_left.style.background = 'rgb(78, 76, 76)';
     document.body.style.backgroundColor = 'rgb(78, 76, 76)';
     navbar.style.backgroundColor = 'rgb(78, 76, 76)';
+    addProduct.style.background = 'rgb(78, 76, 76)';
+    addProduct.style.color = 'black'
 }
 function show(){
     aside_left.style.background = '#fff';
     document.body.style.backgroundColor = '#fff';
     navbar.style.backgroundColor = '#fff';
+    addProduct.style.background = 'orange';
+    addProduct.style.color = '#fff'
 }
 function addProductToList(e) {
     formAddProduct.style.display = '';
@@ -135,9 +146,9 @@ function saveProduct(e) {
         tdId.textContent = 1;
         tdName.textContent = nameInput.value;
         tdCategory.textContent = selectOption.value;
-        tdQuantity.textContent = quantityInput.value;
-        tdGross.textContent = grossInput.value;
-        tdPrice.textContent = priceInput.value;
+        tdQuantity.textContent = quantityInput.value + '$';
+        tdGross.textContent = grossInput.value + '$';
+        tdPrice.textContent = priceInput.value + '$';
         tdDes.textContent = descriptionInput.value;
         delButton.appendChild(iconDel);
         delButton.appendChild(spanDel);

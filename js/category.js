@@ -9,6 +9,7 @@ const descriptionCategory = document.querySelector("#categoryDescription");
 const nameCategory = document.querySelector("#categoryName");
 const search = document.querySelector("#search");
 const backBtn = document.querySelector("#back");
+let navbar = document.querySelector('nav');
 btnAdd.addEventListener("click", addCategory);
 saveBtn.addEventListener("click", saveCategory);
 backBtn.addEventListener("click", backCategory);
@@ -27,9 +28,7 @@ function backCategory(e) {
   e.preventDefault();
   table.style.display = "";
   form.style.display = "none";
-  aside_left.style.background = '#fff'
-  document.body.style.backgroundColor = '#fff';
-  document.body.style.color = '#000';
+  show()
   clearForm();
 }
 
@@ -73,13 +72,44 @@ function deleteCategory(e) {
   }
 }
 
+//======== Hide Element =======//
+function hide(){
+  aside_left.style.background = 'rgb(78, 76, 76)';
+  document.body.style.backgroundColor = 'rgb(78, 76, 76)';
+  navbar.style.backgroundColor = 'rgb(78, 76, 76)';
+  btnAdd.style.backgroundColor = 'rgb(78, 76, 66)';
+  btnAdd.style.color = '#000';
+  search.style.background = 'rgb(78, 76, 66)';
+  aside_left.setAttribute('style', 'box-shadow: 0px 0px 0px 0px');
+  let action = document.querySelectorAll('.icons-color');
+  for (let act of action){
+    act.style.backgroundColor = 'rgb(78, 76, 66)';
+    act.parentElement.style.backgroundColor = 'rgb(78, 76, 66)';
+  }
+
+}
+//============ Show Element ========//
+function show(){
+  aside_left.style.background = '#fff';
+  document.body.style.backgroundColor = '#fff';
+  navbar.style.backgroundColor = '#fff';
+  btnAdd.style.color = '#fff';
+  btnAdd.style.backgroundColor = 'orange';
+  search.style.background = '#fff';
+  aside_left.setAttribute('style', 'box-shadow: 0px 3px 2px 2px orange');
+  let action = document.querySelectorAll('.icons-color');
+  for (let act of action){
+    act.style.backgroundColor = 'orange';
+    act.parentElement.style.backgroundColor = '#fff';
+  }
+}
 //==============Function add category=============//
 function addCategory() {
   form.style.display = "";
-  aside_left.style.background = 'rgb(78, 76, 76)';
-  document.body.style.backgroundColor = 'rgb(78, 76, 76)';
+  hide()
 }
 
+//================= Function To add category name and save to local storage ============//
 function saveCategory(event) {
   event.preventDefault();
   aside_left.style.background = '#fff'
@@ -97,7 +127,7 @@ function saveCategory(event) {
   if (i > 0) {
     run = false;
   }
-  if (run) {
+  if (run && nameCategory.value !== '' && descriptionCategory.value != '') {
     let storeId = data.categoryID;
     if (storeId == null) {
       storeId = 1;
@@ -147,6 +177,7 @@ function saveCategory(event) {
     run = true;
     clearForm();
   }
+  show()
 }
 //==============Function craete category list as table=============//
 function createTablerow() {
@@ -188,6 +219,7 @@ function createTablerow() {
 }
 let data = {
   product: [],
+  productID : null,
   category: [],
   categoryID: null,
 };
