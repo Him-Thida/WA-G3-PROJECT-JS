@@ -13,6 +13,7 @@ function loadLocalCategory() {
         saveLocalCategory();
     }
 }
+//============== Get element from html =============//
 let categoryFilter = document.querySelector(".categories");
 let formAddProduct = document.querySelector('form');
 let addProduct = document.querySelector('#addProduct');
@@ -36,7 +37,14 @@ backBtn.addEventListener('click', back)
 categoryFilter.addEventListener('change', filterProductWithCategory);
 inputSearch.addEventListener('input', searchText);
 addProduct.addEventListener('click', addProductToList);
-saveProductData.addEventListener('click', saveProduct)
+saveProductData.addEventListener('click', saveProduct);
+
+//============== Add eventlistener to btn delete =============//
+for (let btn of buttonDelte) {
+    btn.addEventListener('click', deLete)
+}
+
+//==============Function seart category with filter =============//
 function filterProductWithCategory() {
     for (let tr of tbody.children) {
         if (tr.children[2].textContent == categoryFilter.value) {
@@ -49,7 +57,7 @@ function filterProductWithCategory() {
         }
     }
 }
-
+//==============Function Auto complete category form localstorage =============//
 function completeFilterCategory() {
     let categoryName = data.category;
     for (let name of categoryName) {
@@ -65,14 +73,20 @@ function completeFilterCategory() {
     }
 }
 
-function deLete(event) {
-    event.target.closest('tr').remove();
+//==============Function Delete prodcut name =============//
+function deLete(e) {
+    let namedelete = e.target.closest('tr').children[1].textContent;
+    for (let obj of data.product){
+        if (obj.name == namedelete){
+            data.product.pop(obj);
+            saveLocalCategory()
+            e.target.closest('tr').remove();
+        }
+    }
+
 };
 
-for (let btn of buttonDelte) {
-    btn.addEventListener('click', deLete)
-}
-
+//==============Function search product name =============//
 function searchText() {
     let searchText = inputSearch.value.toLowerCase();
     for (let row of tbody.children) {
