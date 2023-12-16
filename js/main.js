@@ -86,6 +86,13 @@ function deLete(e) {
 
 };
 
+//==============Function detail product name =============//
+function detail(){
+    console.log('ksfsk')
+    console.log(data.product)
+}
+
+
 //==============Function search product name =============//
 function searchText() {
     let searchText = inputSearch.value.toLowerCase();
@@ -176,6 +183,7 @@ function saveProduct(e) {
         viewButton.setAttribute("id", "detail");
         delButton.setAttribute("id", "delete");
         delButton.addEventListener("click", deLete);
+        viewButton.addEventListener('click', detail)
         iconDel.className = "material-icons icons-color";
         iconView.className = "material-icons icons-color";
         iconDel.textContent = "delete";
