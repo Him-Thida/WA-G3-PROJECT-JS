@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
-
 <body>
     <div class="container">
         <nav>
@@ -33,18 +32,10 @@
                         <span><b>Filter By Categories:</b></span>
                         <select name="categories" class="categories">
                             <option>All Category</option>
-                            <!-- <option value="Books">Books</option>
-                            <option value="Drink">Drink</option>
-                            <option value="Watch">Watch</option>
-                            <option value="Classes">Classes</option>
-                            <option value="Shoes">Shoes</option>
-                            <option value="Electronic">Electronic</option>
-                            <option value="computer">computer</option> -->
                         </select>
                     </div>
                     <div class="search">
-                        <input type="text" placeholder="Search Your Product" />
-                        <button>search</button>
+                        <input type="text" placeholder="Search Your Product" id="search"/>
                     </div>
                 </div>
                 <table>
@@ -65,42 +56,57 @@
                     <img id="logo" src="./images/navbar-img/logo.png">
                     <h3>Add Products</h3>
                     <div class="product-data">
-                        <div>
-                            <label>Product Name</label>
-                            <input type="text" placeholder="product name" class="name" />
+                        <div class="left">
+                            <div class="flex-column">
+                                <label>Product Name</label>
+                                <input type="text" placeholder="product name" class="name" />
+                            </div>
+                            <div class="flex-column">
+                                <label>Category</label>
+                                <select name="category" class="chooseCategory">
+                                    <option value="">Choose Category</option>
+                                </select>
+                            </div>
+                            <div class="flex-column">
+                                <label>Net price</label>
+                                <input type="number" placeholder="Net Price" class="price" />
+                            </div>
                         </div>
-                        <div>
-                            <label>Category</label>
-                            <select name="category" class="chooseCategory">
-                                <option value="">Choose Category</option>
-                            </select>
+                        <div class="right">
+                            <div class="flex-column">
+                                <label>Gross price</label>
+                                <input type="number" placeholder="Gross Price" class="gross" />
+                            </div>
+                            <div class="flex-column">
+                                <label>Quantity</label>
+                                <input type="number" placeholder="Quantity" class="quantity" />
+                            </div>
+                            <div class="flex-column">
+                                <label>Descrition</label>
+                                <input type="text" placeholder="Descrition" class="description" />
+                            </div>
                         </div>
-                        <div>
-                            <label>Net price</label>
-                            <input type="number" placeholder="Net Price" class="price" />
-                        </div>
-                        <div>
-                            <label>Gross price</label>
-                            <input type="number" placeholder="Gross Price" class="gross" />
-                        </div>
-                        <div>
-                            <label>Quantity</label>
-                            <input type="number" placeholder="Quantity" class="quantity" />
-                        </div>
-                        <div>
-                            <label>Descrition</label>
-                            <input type="text" placeholder="Descrition" class="description" />
-                        </div>
-                        <div class="action">
-                            <button id="back">Back</button>
-                            <button id="save">Save Product</button>
-                        </div>
+                    </div>
+                    <div class="action">
+                        <button id="back">Back</button>
+                        <button id="save">Save Product</button>
                     </div>
                 </form>
             </div>
         </div>
+        <div class="alert" style="display: none;">
+            <div class="alert-left">
+                <i class="material-icons">error_outline</i>
+            </div>
+            <div class="alert-right">
+                <span><b>DCH POS SYSTEM</b></span>
+                <div>
+                    <p>Missing Some Information</p>
+                </div>
+            </div>
+            <button id="ok">Ok</button>
+        </div>
         <script src="./js/main.js" defer></script>
     </div>
 </body>
-
 </html>

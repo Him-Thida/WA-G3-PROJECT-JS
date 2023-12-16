@@ -109,23 +109,14 @@ select {
     font-size: 16px;
 }
 
-.search {
-    display: flex;
-    justify-content: center;
-}
-
-.search input {
+#search {
     border-radius: 5px;
     border: 1px solid orange;
     outline: none;
     padding: 3px;
     font-size: 16px;
-    width: 150px;
-}
-
-.search button {
-    width: 60px;
-    font-size: 16px;
+    width: 200px;
+    height: 28px;
 }
 
 table {
@@ -140,12 +131,14 @@ td {
     height: 40px;
     text-align: center;
 }
-.action{
+
+.action {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-td button{
+
+td button {
     background: white;
     display: flex;
     align-items: center;
@@ -158,7 +151,8 @@ td button{
     color: #000;
     box-shadow: 1px 1px 1px 1px orange;
 }
-button .icons-color{
+
+button .icons-color {
     height: 30px;
     width: 30px;
     border-top-left-radius: 5px;
@@ -166,76 +160,147 @@ button .icons-color{
     background: orange;
     color: white;
 }
+
 form {
     position: fixed;
-    top: 100px;
+    top: 90px;
     background: #fff;
     box-shadow: 0px 0px 5px 1px orange;
     border-radius: 10px;
     gap: 20px;
     display: flex;
-    flex-wrap: wrap;
-    height: 400px;
+    flex-direction: column;
+    height: 450px;
     width: 60%;
     padding: 20px;
     left: 19%;
 }
-form #logo{
-    height: 100px;
-    width: 100px;
-    margin-left: 44%;
-    margin-top: 3%;
-}
-form h3 {
-    text-align: center;
+
+form #logo {
+    height: 80px;
+    width: 80px;
+    margin-left: 45%;
 }
 
-form div {
-    display: flex;
-    
-    align-items: center;
+form h3 {
+    text-align: center;
+    color: orange;
 }
+
 
 form .product-data {
     display: flex;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.product-data .left,
+.product-data .right {
+    width: 50%;
+    display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+form .flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
 }
 
 form .product-data label {
     width: 150px;
 }
 
-form input{
-    box-shadow: 0px 0px 10px 1px orange;
+form input {
     padding: 4px;
     font-size: 15px;
     border: 1px solid orange;
     outline: orange;
     border-radius: 5px;
     height: 30px;
+    width: 97%;
 }
-form select{
-    height: 40px;
-    box-shadow: 0px 0px 10px 1px orange;
 
+form select {
+    width: 99%;
+    height: 40px;
 }
-form .action{
+
+input:hover,
+select:hover {
+    box-shadow: 0px 0px 10px 1px orange;
+}
+
+form .action {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-#back{
+
+#back {
     width: 140px;
 }
-#save{
+
+#save {
     width: 200px;
 }
-form button{
+
+form button {
     font-size: 16px;
     height: 40px;
     background: orange;
     border: none;
     border-radius: 5px;
     color: white;
+}
+
+button:hover {
+    background: #fff;
+    color: black;
+    box-shadow: 0px 0px 10px 1px orange;
+}
+
+.alert {
+    position: fixed;
+    top: 60px;
+    left: 38%;
+    background-image: linear-gradient(orange, red);
+    box-shadow: 0px 3px 2px 0px orange;
+    width: 350px;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: space-around;
+    height: 80px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.alert .alert-left {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.alert-right {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.alert-right div{
+    display: flex;
+    flex-direction: column;
+}
+.alert button{
+    padding: 3px;
+    width: 40px;
+    height: 30px;
+    border-radius: 20%;
+    background: #fff;
+    border: none;
 }

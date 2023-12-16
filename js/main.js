@@ -17,7 +17,7 @@ let categoryFilter = document.querySelector(".categories");
 let formAddProduct = document.querySelector('form');
 let addProduct = document.querySelector('#addProduct');
 let tbody = document.querySelector('tbody');
-let inputSearch = document.querySelector('input');
+let inputSearch = document.querySelector('#search');
 let rows = document.querySelectorAll('Table tbody tr');
 let buttonDelte = document.querySelectorAll('.delete');
 let navbar = document.querySelector('nav');
@@ -30,6 +30,9 @@ let grossInput = document.querySelector('.gross');
 let quantityInput = document.querySelector('.quantity');
 let descriptionInput = document.querySelector('.description');
 let backBtn = document.querySelector('#back');
+let okbtn = document.querySelector('#ok');
+let alert = document.querySelector('.alert');
+okbtn.addEventListener('click', okAlert);
 backBtn.addEventListener('click', back)
 categoryFilter.addEventListener('change', filterProductWithCategory);
 inputSearch.addEventListener('input', searchText);
@@ -88,23 +91,36 @@ function back(e){
     formAddProduct.style.display = 'none';
 }
 function hide(){
-    
     aside_left.style.background = 'rgb(78, 76, 76)';
     document.body.style.backgroundColor = 'rgb(78, 76, 76)';
     navbar.style.backgroundColor = 'rgb(78, 76, 76)';
     addProduct.style.background = 'rgb(78, 76, 76)';
-    addProduct.style.color = 'black'
+    addProduct.style.color = 'black';
+    inputSearch.style.backgroundColor = 'rgb(78, 76,76)';
+    categoryFilter.style.backgroundColor = 'rgb(78 , 76, 76)';
+    let action = document.querySelectorAll('.icons-color');
+    for (let act of action){
+        act.style.backgroundColor = 'rgb(78, 76,76)';
+        act.parentElement.style.backgroundColor = 'rgb(78, 76,76)';
+    }
 }
 function show(){
     aside_left.style.background = '#fff';
     document.body.style.backgroundColor = '#fff';
     navbar.style.backgroundColor = '#fff';
     addProduct.style.background = 'orange';
-    addProduct.style.color = '#fff'
+    addProduct.style.color = '#fff';
+    inputSearch.style.backgroundColor = '#fff';
+    categoryFilter.style.backgroundColor = '#fff';
+    let action = document.querySelectorAll('.icons-color');
+    for (let act of action){
+        act.style.backgroundColor = 'orange';
+        act.parentElement.style.backgroundColor = '#fff';
+    }
 }
 function addProductToList(e) {
+    hide();
     formAddProduct.style.display = '';
-    hide()
 }
 function saveProduct(e) {
     let store = data.productID;
@@ -137,6 +153,7 @@ function saveProduct(e) {
         let tdDes = document.createElement('td');
         let tdAction = document.createElement("td");
         tdAction.className = "action";
+        tdAction.setAttribute('id','action')
         let delButton = document.createElement("button");
         let viewButton = document.createElement("button");
         let iconDel = document.createElement("i");
@@ -155,9 +172,9 @@ function saveProduct(e) {
         tdId.textContent = store;
         tdName.textContent = nameInput.value;
         tdCategory.textContent = selectOption.value;
-        tdQuantity.textContent = quantityInput.value + '$';
-        tdGross.textContent = grossInput.value + '$';
-        tdPrice.textContent = priceInput.value + '$';
+        tdQuantity.textContent = quantityInput.value;
+        tdGross.textContent = grossInput.value;
+        tdPrice.textContent = priceInput.value;
         tdDes.textContent = descriptionInput.value;
         delButton.appendChild(iconDel);
         delButton.appendChild(spanDel);
@@ -172,10 +189,15 @@ function saveProduct(e) {
         tr.appendChild(tdPrice);
         tr.appendChild(tdAction);
         tbody.appendChild(tr)
+        formAddProduct.style.display = 'none';
+        show()
+        clearInput()
+    }else{
+        alert.style.display = '';
     }
-    formAddProduct.style.display = 'none';
-    show()
-    clearInput()
+}
+function okAlert(e){
+    e.target.parentElement.style.display = 'none';
 }
 function createTable() {
     let store = data.product;
@@ -209,7 +231,6 @@ function createTable() {
         tdName.textContent =element.name;
         tdCategory.textContent =element.category;
         tdQuantity.textContent =element.quantity;
-        tdGross.textContent =element.grossPrice;
         tdPrice.textContent =element.price;
         tdDes.textContent =element.description;
         delButton.appendChild(iconDel);
