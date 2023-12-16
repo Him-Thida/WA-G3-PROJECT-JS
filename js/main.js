@@ -1,6 +1,5 @@
 //==============Save Data to localStorage=============//
 function saveLocalCategory() {
-    ``
     localStorage.setItem("data", JSON.stringify(data));
 }
 //==============Function Load data from localStorage=============//
@@ -30,6 +29,8 @@ let priceInput = document.querySelector('.price');
 let grossInput = document.querySelector('.gross');
 let quantityInput = document.querySelector('.quantity');
 let descriptionInput = document.querySelector('.description');
+let backBtn = document.querySelector('#back');
+backBtn.addEventListener('click', back)
 categoryFilter.addEventListener('change', filterProductWithCategory);
 inputSearch.addEventListener('input', searchText);
 addProduct.addEventListener('click', addProductToList);
@@ -81,17 +82,43 @@ function searchText() {
         }
     };
 };
-
-function addProductToList(e) {
-    formAddProduct.style.display = '';
+function back(e){
+    e.preventDefault();
+    show()
+    formAddProduct.style.display = 'none';
+}
+function hide(){
+    
     aside_left.style.background = 'rgb(78, 76, 76)';
     document.body.style.backgroundColor = 'rgb(78, 76, 76)';
     navbar.style.backgroundColor = 'rgb(78, 76, 76)';
+    addProduct.style.background = 'rgb(78, 76, 76)';
+    addProduct.style.color = 'black'
+}
+function show(){
+    aside_left.style.background = '#fff';
+    document.body.style.backgroundColor = '#fff';
+    navbar.style.backgroundColor = '#fff';
+    addProduct.style.background = 'orange';
+    addProduct.style.color = '#fff'
+}
+function addProductToList(e) {
+    formAddProduct.style.display = '';
+    hide()
 }
 function saveProduct(e) {
+    let store = data.productID;
+    if (data.productID == null){
+        store = 1;
+        data.productID = store;
+    }else{
+        store += 1
+        data.productID = store;
+    }
     e.preventDefault();
     let obj = {};
     if (nameInput.value && selectOption.value && quantityInput.value && priceInput.value !== '') {
+        obj.id = store;
         obj.name = nameInput.value;
         obj.category = selectOption.value;
         obj.quantity = quantityInput.value;
@@ -125,12 +152,12 @@ function saveProduct(e) {
         spanDel.textContent = "Delete";
         iconView.textContent = "create";
         spanView.textContent = "Detail";
-        tdId.textContent = 1;
+        tdId.textContent = store;
         tdName.textContent = nameInput.value;
         tdCategory.textContent = selectOption.value;
-        tdQuantity.textContent = quantityInput.value;
-        tdGross.textContent = grossInput.value;
-        tdPrice.textContent = priceInput.value;
+        tdQuantity.textContent = quantityInput.value + '$';
+        tdGross.textContent = grossInput.value + '$';
+        tdPrice.textContent = priceInput.value + '$';
         tdDes.textContent = descriptionInput.value;
         delButton.appendChild(iconDel);
         delButton.appendChild(spanDel);
@@ -147,9 +174,7 @@ function saveProduct(e) {
         tbody.appendChild(tr)
     }
     formAddProduct.style.display = 'none';
-    aside_left.style.background = '#fff';
-    document.body.style.backgroundColor = '#fff';
-    navbar.style.backgroundColor = '#fff';
+    show()
     clearInput()
 }
 function createTable() {
@@ -180,7 +205,7 @@ function createTable() {
         spanDel.textContent = "Delete";
         iconView.textContent = "create";
         spanView.textContent = "Detail";
-        tdId.textContent = 1;
+        tdId.textContent = element.id;
         tdName.textContent =element.name;
         tdCategory.textContent =element.category;
         tdQuantity.textContent =element.quantity;
@@ -212,6 +237,7 @@ function clearInput() {
 }
 let data = {
     product: [],
+    productID : null,
     category: [],
     categoryID: null,
 };
