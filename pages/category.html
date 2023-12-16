@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/categories.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
+
 <body>
   <div class="container">
     <nav>
@@ -30,7 +31,6 @@
           </button>
           <div class="search">
             <input type="text" placeholder="Search Your Product" id="search" />
-
           </div>
         </div>
         <table>
@@ -46,7 +46,7 @@
         </table>
 
         <form action="addCategory" style="display: none;">
-          <img id="logo" src="../images/navbar-img/logo.png" >
+          <img id="logo" src="../images/navbar-img/logo.png">
           <h3>Add Category</h3>
           <div>
             <label for="category"><b>Category Name</b></label>
@@ -61,10 +61,18 @@
             <button id="save-category">Save</button>
           </div>
         </form>
+        <div class="showDetail" style="display: none;">
+          <img src="../images/navbar-img/logo.png">
+          <h4 class="id">Category Id</h4>
+          <h4 class="name">Category Name</h4>
+          <p class="description">Descirption</p>
+          <button id="close">Close</button>
+        </div>
       </div>
     </div>
   </div>
   <script src="../js/category.js" defer></script>
   </div>
 </body>
+
 </html>

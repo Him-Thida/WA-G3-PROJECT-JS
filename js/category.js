@@ -10,6 +10,9 @@ const nameCategory = document.querySelector("#categoryName");
 const search = document.querySelector("#search");
 const backBtn = document.querySelector("#back");
 let navbar = document.querySelector('nav');
+const detailCategory = document.querySelector('.showDetail');
+const close = document.querySelector('#close');
+close.addEventListener('click', closeDetail);
 btnAdd.addEventListener("click", addCategory);
 saveBtn.addEventListener("click", saveCategory);
 backBtn.addEventListener("click", backCategory);
@@ -17,6 +20,27 @@ search.addEventListener("input", searchCategory);
 let i = 0;
 let NumberIDcategory = 0;
 
+function closeDetail(e){
+  e.target.parentElement.style.display = 'none';
+  show()
+}
+function showDetail(e){
+  hide()
+  detailCategory.style.display = '';
+  let categoryInformation = e.target.closest('tr').children[1].textContent;
+  let categoryListName = data.category;
+  let id = document.querySelector('.id');
+  let name = document.querySelector('.name');
+  let des = document.querySelector('.description');
+  for (let i of categoryListName){
+    if (categoryInformation == i.category){
+      console.log(i)
+      id.textContent = 'Category Id : ' + i.id;
+      name.textContent = 'Category Name : ' + i.category;
+      des.textContent = 'Descirption : ' + i.description;
+    }
+  }
+}
 //==============Function for clear input=============//
 function clearForm() {
   nameCategory.value = "";
@@ -156,6 +180,7 @@ function saveCategory(event) {
     let iconView = document.createElement("i");
     let spanView = document.createElement("span");
     viewButton.setAttribute("id", "detail");
+    viewButton.addEventListener('click', showDetail);
     delButton.setAttribute("id", "delete");
     delButton.addEventListener("click", deleteCategory);
     iconDel.className = "material-icons icons-color";
@@ -197,6 +222,7 @@ function createTablerow() {
     let iconView = document.createElement("i");
     let spanView = document.createElement("span");
     viewButton.setAttribute("id", "detail");
+    viewButton.addEventListener('click', showDetail);
     delButton.setAttribute("id", "delete");
     delButton.addEventListener("click", deleteCategory);
     iconDel.className = "material-icons icons-color";
