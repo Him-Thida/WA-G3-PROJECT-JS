@@ -151,8 +151,8 @@ function saveProduct(e) {
         obj.name = nameInput.value;
         obj.category = selectOption.value;
         obj.quantity = quantityInput.value;
-        obj.price = priceInput.value;
-        obj.grossPrice = grossInput.value;
+        obj.price = priceInput.value + '$';
+        obj.grossPrice = grossInput.value + '$';
         obj.description = descriptionInput.value;
         data.product.push(obj)
         saveLocalCategory()
@@ -186,8 +186,8 @@ function saveProduct(e) {
         tdName.textContent = nameInput.value;
         tdCategory.textContent = selectOption.value;
         tdQuantity.textContent = quantityInput.value;
-        tdGross.textContent = grossInput.value;
-        tdPrice.textContent = priceInput.value;
+        tdGross.textContent = grossInput.value + '$';
+        tdPrice.textContent = priceInput.value + '$';
         tdDes.textContent = descriptionInput.value;
         delButton.appendChild(iconDel);
         delButton.appendChild(spanDel);
