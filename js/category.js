@@ -96,6 +96,7 @@ function deleteCategory(e) {
   }
 }
 
+
 //======== Hide Element =======//
 function hide(){
   aside_left.style.background = 'rgb(78, 76, 76)';
