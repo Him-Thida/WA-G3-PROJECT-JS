@@ -167,39 +167,7 @@ function saveCategory(event) {
     obj.description = descriptionCategory.value;
     data.category.push(obj);
     saveLocalCategory();
-    let row = document.createElement("tr");
-    let tdID = document.createElement("td");
-    let tdName = document.createElement("td");
-    tdID.textContent = obj.id;
-    tdName.textContent = obj.category;
-    let tdAction = document.createElement("td");
-    tdAction.className = "action";
-    let delButton = document.createElement("button");
-    let viewButton = document.createElement("button");
-    let iconDel = document.createElement("i");
-    let spanDel = document.createElement("span");
-    let iconView = document.createElement("i");
-    let spanView = document.createElement("span");
-    viewButton.setAttribute("id", "detail");
-    viewButton.addEventListener('click', showDetail);
-    delButton.setAttribute("id", "delete");
-    delButton.addEventListener("click", deleteCategory);
-    iconDel.className = "material-icons icons-color";
-    iconView.className = "material-icons icons-color";
-    iconDel.textContent = "delete";
-    spanDel.textContent = "Delete";
-    iconView.textContent = "create";
-    spanView.textContent = "Detail";
-    delButton.appendChild(iconDel);
-    delButton.appendChild(spanDel);
-    viewButton.appendChild(iconView);
-    viewButton.appendChild(spanView);
-    tdAction.appendChild(delButton);
-    tdAction.appendChild(viewButton);
-    row.appendChild(tdID);
-    row.appendChild(tdName);
-    row.appendChild(tdAction);
-    tbody.appendChild(row);
+    createTablerow()
     run = true;
     clearForm();
   }
@@ -208,6 +176,7 @@ function saveCategory(event) {
 //==============Function craete category list as table=============//
 function createTablerow() {
   let storeCategory = data.category;
+  tbody.innerHTML = '';
   for (let obj of storeCategory) {
     let row = document.createElement("tr");
     let tdID = document.createElement("td");

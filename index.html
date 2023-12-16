@@ -1,123 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHD Online Shopping</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
     <div class="container">
-        <nav>
-            <img src="./images/navbar-img/card.png"/>
-            <span><b>POS SYSTEM</b></span>
-        </nav>
-        <div class="main">
-            <div class="aside-left">
-                <ul>
-                    <li><a href="./pages/Bashborad.html"><img src="./images/navbar-img/bashboard.png" />Bashboard</a></li>
-                    <li><a href="#"><img src="./images/navbar-img/product.png" />Products</a></li>
-                    <li><a href="./pages/category.html"><img src="./images/navbar-img/category.png" />Categories</a></li>
-                    <li><a href="./pages/order.html"><img src="./images/navbar-img/order.png" />Order</a></li>
-                </ul>
-            </div>
-            <div class="aside-right">
-                <div class="tool">
-                    <button id="addProduct">
-                        <i class="material-icons">add_circle</i>Add Product
-                    </button>
-                    <div class="fitter">
-                        <span><b>Filter By Categories:</b></span>
-                        <select name="categories" class="categories">
-                            <option>All Category</option>
-                        </select>
-                    </div>
-                    <div class="search">
-                        <input type="text" placeholder="Search Your Product Name" id="search"/>
-                    </div>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Category</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Other</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <form action="addProduct" style="display: none;">
-                    <img id="logo" src="./images/navbar-img/logo.png">
-                    <h3>Add Products</h3>
-                    <div class="product-data">
-                        <div class="left">
-                            <div class="flex-column">
-                                <label>Product Name</label>
-                                <input type="text" placeholder="product name" class="name" />
-                            </div>
-                            <div class="flex-column">
-                                <label>Category</label>
-                                <select name="category" class="chooseCategory">
-                                    <option value="">Choose Category</option>
-                                </select>
-                            </div>
-                            <div class="flex-column">
-                                <label>Net price</label>
-                                <input type="number" placeholder="Net Price" class="price" />
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="flex-column">
-                                <label>Gross price</label>
-                                <input type="number" placeholder="Gross Price" class="gross" />
-                            </div>
-                            <div class="flex-column">
-                                <label>Quantity</label>
-                                <input type="number" placeholder="Quantity" class="quantity" />
-                            </div>
-                            <div class="flex-column">
-                                <label>Descrition</label>
-                                <input type="text" placeholder="Descrition" class="description" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="action">
-                        <button id="back">Back</button>
-                        <button id="save">Save Product</button>
-                    </div>
-                </form>
-            </div>
+      <nav>
+        <img src="./images/navbar-img/card.png" />
+        <span><b>POS SYSTEM</b></span>
+      </nav>
+      <div class="main">
+        <div class="aside-left">
+          <ul>
+            <li>
+              <a href="./pages/Bashborad.html"
+                ><img src="./images/navbar-img/bashboard.png" />Bashboard</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><img src="./images/navbar-img/product.png" />Products</a
+              >
+            </li>
+            <li>
+              <a href="./pages/category.html"
+                ><img src="./images/navbar-img/category.png" />Categories</a
+              >
+            </li>
+            <li>
+              <a href="./pages/order.html"
+                ><img src="./images/navbar-img/order.png" />Order</a
+              >
+            </li>
+          </ul>
         </div>
-        <div class="alert" style="display: none;">
-            <div class="alert-left">
-                <i class="material-icons">error_outline</i>
+        <div class="aside-right">
+          <div class="tool">
+            <button id="addProduct">
+              <i class="material-icons">add_circle</i>Add Product
+            </button>
+            <div class="fitter">
+              <span><b>Filter By Categories:</b></span>
+              <select name="categories" class="categories">
+                <option>All Category</option>
+              </select>
             </div>
-            <div class="alert-right">
-                <span><b>DCH POS SYSTEM</b></span>
-                <div>
-                    <p>Missing Some Information</p>
-                </div>
+            <div class="search">
+              <input
+                type="text"
+                placeholder="Search Your Product Name"
+                id="search"
+              />
             </div>
-            <button id="ok">Ok</button>
-        </div>
-        <div class="showDetail" style="display: none;">
-            <img src="../images/navbar-img/logo.png">
-            <h4 class="idPro">Product Id</h4>
-            <h4 class="namePro">Product Name</h4>
-            <h4 class="descriptionPro">Descirption</h4>
-            <h4 class="categoryNamePro">Category Name</h4>
-            <h4 class="quantityPro">Quantity</h4>
-            <h4 class="pricePro">Price</h4>
-            <h4 class="grossPricePro">Grose Price</h4>
-            <button id="close">Close</button>
           </div>
-        <script src="./js/main.js" defer></script>
+          <table>
+            <thead>
+              <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Other</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <form action="addProduct" style="display: none">
+            <img id="logo" src="./images/navbar-img/logo.png" />
+            <h3>Add Products</h3>
+            <div class="product-data">
+              <div class="left">
+                <div class="flex-column">
+                  <label>Product Name</label>
+                  <input type="text" placeholder="product name" class="name" />
+                </div>
+                <div class="flex-column">
+                  <label>Category</label>
+                  <select name="category" class="chooseCategory">
+                    <option value="">Choose Category</option>
+                  </select>
+                </div>
+                <div class="flex-column">
+                  <label>Net price</label>
+                  <input type="number" placeholder="Net Price" class="price" />
+                </div>
+              </div>
+              <div class="right">
+                <div class="flex-column">
+                  <label>Gross price</label>
+                  <input
+                    type="number"
+                    placeholder="Gross Price"
+                    class="gross"
+                  />
+                </div>
+                <div class="flex-column">
+                  <label>Quantity</label>
+                  <input
+                    type="number"
+                    placeholder="Quantity"
+                    class="quantity"
+                  />
+                </div>
+                <div class="flex-column">
+                  <label>Descrition</label>
+                  <input
+                    type="text"
+                    placeholder="Descrition"
+                    class="description"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="action">
+              <button id="back">Back</button>
+              <button id="save">Save Product</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="alert" style="display: none">
+        <div class="alert-left">
+          <i class="material-icons">error_outline</i>
+        </div>
+        <div class="alert-right">
+          <span><b>DCH POS SYSTEM</b></span>
+          <div>
+            <p>Missing Some Information</p>
+          </div>
+        </div>
+        <button id="ok">Ok</button>
+      </div>
+      <div class="showDetail" style="display: none">
+        <img src="../images/navbar-img/logo.png" />
+        <h4 class="idPro">Product Id</h4>
+        <h4 class="namePro">Product Name</h4>
+        <h4 class="descriptionPro">Descirption</h4>
+        <h4 class="categoryNamePro">Category Name</h4>
+        <h4 class="quantityPro">Quantity</h4>
+        <h4 class="pricePro">Price</h4>
+        <h4 class="grossPricePro">Grose Price</h4>
+        <button id="close">Close</button>
+      </div>
+      <script src="./js/main.js" defer></script>
     </div>
-</body>
+  </body>
 </html>

@@ -12,7 +12,7 @@ nav {
     align-items: center;
     padding-left: 30px;
     background: #fff;
-    box-shadow: 0px 0px 5px 2px orange;
+    box-shadow: 0px 0px 2px 0px ;
     position: sticky;
     top: 0;
     z-index: 2;
@@ -34,8 +34,6 @@ nav img {
 .main .aside-left {
     width: 15%;
     height: 100vh;
-    /* background: rgb(78, 76, 76); */
-    box-shadow: 0px 3px 2px 2px orange;
 }
 
 .main .aside-left ul {
@@ -109,7 +107,15 @@ li:hover {
     font-size: 16px;
     height: 27px;
 }
-
+#search:hover, button:hover{
+    box-shadow: 0px 0px 3px 2px orange;
+    background: #fff;
+    color: orange;
+}
+input:hover{
+    box-shadow: 0px 0px 3px 2px orange;
+    background: #fff;
+}
 table {
     margin-top: 40px;
     border-collapse: collapse;
@@ -122,6 +128,27 @@ td {
     height: 40px;
     padding-left: 20px;
 }
+table th{
+    background: orange;
+    color: #fff;
+}
+th,
+td {
+    border: 1px solid orange;
+    height: 40px;
+    text-align: center;
+}
+tbody tr:hover{
+    box-shadow: 0px 0px 4px 2px orange;
+}
+tr:nth-child(even){
+    background: rgb(236, 228, 214);
+}
+td:hover{
+    color: orange;
+    font-size: 18px;
+}
+
 .action{
     display: flex;
     justify-content: space-around;
