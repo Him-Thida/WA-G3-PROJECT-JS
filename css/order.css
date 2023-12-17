@@ -84,7 +84,7 @@ input:hover{
 .product .card{
     display: flex;
     flex-direction: column;
-    width: 140px;
+    width: 190px;
     justify-content: space-around;
     height: 130px;
     padding: 10px;
@@ -101,7 +101,7 @@ input:hover{
     font-weight: 700;
 }
 .aside-right{
-    width: 27%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -123,29 +123,35 @@ input:hover{
     display: flex;
     align-content: center;
     justify-content: space-around;
-    height: 30px;
 }
 .aside-right ul li{
     list-style: none;
+    text-align: center;
+    background: #fff;
+    height: 40px;
     display: flex;
     align-items: center;
-    width: 33%;
-    text-align: center;
-    margin-left: 10px;
+    justify-content: center;
+    width: 100px;
 
+}
+ul #qty{
+    display: flex;
+    justify-content: space-between;
+}
+.list-Checkout ul{
+    display: flex;
+    justify-content: center;
 }
 .aside-right .list-item{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border-radius: 10px;
+    border-radius: 3px;
     height: 50px;
-    margin: 10px 0px;
     border: 1px solid orange;
 }
-.list-item p:nth-child(1){
-    width: 80px;
-}
+
 .aside-right .bottom{
     margin-top: 50px;
 }
@@ -157,11 +163,7 @@ input:hover{
 .menu-price ul{
     display: flex;
     justify-content: space-around;
-    /* background: #000; */
     width: 100%;
-}
-.delete{
-    color: orange;
 }
 .total{
     display: flex;
