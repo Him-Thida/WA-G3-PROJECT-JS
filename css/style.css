@@ -1,74 +1,86 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
 }
-nav{
+
+nav {
     display: flex;
     align-items: center;
     padding-left: 30px;
     background: #fff;
-    box-shadow: 0px 0px 5px 2px orange;
+    box-shadow: 0px 0px 1px 0px ;
     position: sticky;
     top: 0;
     z-index: 2;
 }
-nav img{
+
+nav img {
     width: 35px;
-    padding: 10px ;
+    padding: 10px;
 }
-.main{
+
+.main {
     display: flex;
 }
-.main img{
+
+.main img {
     width: 30px;
 }
-.main .aside-left{
+
+.main .aside-left {
     width: 15%;
     height: 100vh;
     background: #fff;
-    box-shadow: 0px 0px 2px 2px orange;
+    /* box-shadow: 0px 0px 2px 2px orange; */
 }
-.main .aside-left ul{
+
+.main .aside-left ul {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     color: #fff;
     gap: 10px;
 }
-.main .aside-left ul li{
+
+.main .aside-left ul li {
     padding-left: 25px;
     height: 40px;
     list-style: none;
 }
 
-.main .aside-left ul li a{
+.main .aside-left ul li a {
     color: orange;
     display: flex;
     align-items: center;
     text-decoration: none;
 }
-li:hover{
+
+li:hover {
     letter-spacing: 1px;
 }
-.aside-right{
+
+.aside-right {
     width: 85%;
     padding: 40px 50px;
     overflow-x: auto;
-    
-    
+
+
 
 }
-.aside-right .tool{
+
+.aside-right .tool {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.tool button{
+
+.tool button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,73 +93,260 @@ li:hover{
     background: orange;
     color: white;
 }
-.tool .fitter{
+
+.tool .fitter {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50%;
 }
-select{
+
+select {
     width: 200px;
     height: 35px;
     border-radius: 5px;
     border: 1px solid orange;
     font-size: 16px;
 }
-.search {
-    display: flex;
-    justify-content: center;
-}
-.search input{
+
+#search {
     border-radius: 5px;
     border: 1px solid orange;
     outline: none;
     padding: 3px;
     font-size: 16px;
-    width: 150px;
+    width: 200px;
+    height: 28px;
 }
-.search button{
-    width: 60px;
-    font-size: 16px;
-}
-table{
+
+table {
     margin-top: 40px;
     border-collapse: collapse;
 }
-th, td{
-    border: 1px solid black;
+
+table th{
+    background: orange;
+    color: #fff;
+}
+th,
+td {
+    border: 1px solid orange;
     width: 11rem;
     height: 40px;
     text-align: center;
 }
-form{
-    background: rgb(233, 232, 231);
-    margin: 20px 0px;
-    padding: 10px;
+tbody tr:hover{
+    box-shadow: 0px 0px 4px 2px orange;
+}
+tr:nth-child(even){
+    background: rgb(236, 228, 214);
+}
+td:hover{
+    color: orange;
+    font-size: 18px;
+}
+.action {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+td button {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    height: 30px;
+    border: none;
+    font-size: 16px;
     border-radius: 5px;
+    color: #000;
+    box-shadow: 1px 1px 1px 1px orange;
+}
+
+button .icons-color {
+    height: 30px;
+    width: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: orange;
+    color: white;
+}
+
+form {
+    position: fixed;
+    top: 90px;
+    background: #fff;
+    box-shadow: 0px 0px 5px 1px orange;
+    border-radius: 10px;
+    gap: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
+    height: 450px;
+    width: 60%;
+    padding: 20px;
+    left: 19%;
 }
-form h3{
+
+form #logo {
+    height: 80px;
+    width: 80px;
+    margin-left: 45%;
+}
+
+form h3 {
     text-align: center;
+    color: orange;
 }
-form div{
+
+
+form .product-data {
     display: flex;
-    align-items: center;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
 }
-form span{
-    width: 160px;
-    
-}
-form input{
+
+.product-data .left,
+.product-data .right {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form .flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+form .product-data label {
+    width: 150px;
+}
+
+form input {
     padding: 4px;
     font-size: 15px;
-    border: none;
-    outline: none;
+    border: 1px solid orange;
+    outline: orange;
     border-radius: 5px;
     height: 30px;
+    width: 97%;
+}
+
+form select {
+    width: 99%;
+    height: 40px;
+}
+
+input:hover,
+select:hover {
+    box-shadow: 0px 0px 3px 2px orange;
+}
+
+form .action {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#back {
+    width: 140px;
+}
+
+#save {
+    width: 200px;
+}
+
+form button {
+    font-size: 16px;
+    height: 40px;
+    background: orange;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+button:hover {
+    background: #fff;
+    color: black;
+    box-shadow: 0px 0px 3px 2px orange;
+}
+
+.alert {
+    position: fixed;
+    top: 60px;
+    left: 38%;
+    background-image: linear-gradient(orange, red);
+    box-shadow: 0px 3px 2px 0px orange;
+    width: 350px;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: space-around;
+    height: 80px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.alert .alert-left {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.alert-right {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.alert-right div{
+    display: flex;
+    flex-direction: column;
+}
+.alert button{
+    padding: 3px;
+    width: 40px;
+    height: 30px;
+    border-radius: 20%;
+    background: #fff;
+    border: none;
+}
+.showDetail{
+    background: #fff;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px 2px orange;
+    position: fixed;
+    width: 40%;
+    top: 70px;
+    left: 30%;
+    background: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+}
+.showDetail img{
+    width: 90px;
+    height: 90px;
+    margin-left: 42%;
+}
+.showDetail button{
+    float: left;
+    font-size: 16px;
+    color: #fff;
+    width: 100px;
+    height: 35px;
+    background: orange;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 81%;
 }

@@ -12,7 +12,7 @@ nav {
     align-items: center;
     padding-left: 30px;
     background: #fff;
-    box-shadow: 0px 0px 5px 2px orange;
+    box-shadow: 0px 0px 2px 0px ;
     position: sticky;
     top: 0;
     z-index: 2;
@@ -34,8 +34,6 @@ nav img {
 .main .aside-left {
     width: 15%;
     height: 100vh;
-    /* background: rgb(78, 76, 76); */
-    box-shadow: 0px 3px 2px 2px orange;
 }
 
 .main .aside-left ul {
@@ -99,25 +97,25 @@ li:hover {
     width: 50%;
 }
 
-.search {
-    display: flex;
-    justify-content: center;
-}
-
-.search input {
+#search{
     border-radius: 5px;
     border: 1px solid orange;
     outline: none;
     padding: 3px;
     font-size: 16px;
     width: 300px;
-}
-
-.search button {
-    width: 60px;
     font-size: 16px;
+    height: 27px;
 }
-
+#search:hover, button:hover{
+    box-shadow: 0px 0px 3px 2px orange;
+    background: #fff;
+    color: orange;
+}
+input:hover{
+    box-shadow: 0px 0px 3px 2px orange;
+    background: #fff;
+}
 table {
     margin-top: 40px;
     border-collapse: collapse;
@@ -130,13 +128,33 @@ td {
     height: 40px;
     padding-left: 20px;
 }
+table th{
+    background: orange;
+    color: #fff;
+}
+th,
+td {
+    border: 1px solid orange;
+    height: 40px;
+    text-align: center;
+}
+tbody tr:hover{
+    box-shadow: 0px 0px 4px 2px orange;
+}
+tr:nth-child(even){
+    background: rgb(236, 228, 214);
+}
+td:hover{
+    color: orange;
+    font-size: 18px;
+}
+
 .action{
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 td button{
-    background: white;
     display: flex;
     align-items: center;
     width: 40%;
@@ -162,21 +180,25 @@ form {
     position: fixed;
     top: 100px;
     background: #fff;
-    box-shadow: 0px 0px 10px 1px orange;
+    box-shadow: 0px 0px 5px 1px orange;
     border-radius: 10px;
     gap: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 200px;
-    width: 400px;
-    padding: 30px;
-    margin: 70px 250px;
-    color: #000;
+    height: 400px;
+    width: 60%;
+    padding: 20px;
+    left: 19%;
 }
-
+form #logo{
+    height: 100px;
+    width: 100px;
+    margin-left: 44%;
+    margin-top: 3%;
+}
 form label {
-    width: 150px;
+    width: 25%;
+    margin-left: 50px;
 }
 form div {
     display: flex;
@@ -187,7 +209,7 @@ form h3{
     color: orange;
 }
 form input {
-    width: 300px;
+    width: 60%;
     height: 30px;
     padding: 5px;
     font-size: 17px;
@@ -199,15 +221,49 @@ form input {
 form button{
     height: 40px;
     font-size: 17px;
-    padding: px;
+    padding: 10px;
     background: orange;
     border: none;
     border-radius: 4px; 
 }
 #back{
-    width: 31%;
+    width: 20%;
+    margin-left: 6%;
 }
 #save-category{
-    margin-left: 10px;
-    width: 70%;
+    margin-left: 45px;
+    width: 61%;
+}
+.showDetail{
+    background: #fff;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px 2px orange;
+    position: fixed;
+    width: 40%;
+    top: 100px;
+    left: 30%;
+    background: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+}
+.showDetail img{
+    width: 90px;
+    height: 90px;
+    margin-left: 42%;
+}
+.showDetail button{
+    float: left;
+    font-size: 16px;
+    color: #fff;
+    width: 100px;
+    height: 35px;
+    background: orange;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 81%;
 }
