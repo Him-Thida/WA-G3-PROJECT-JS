@@ -1,5 +1,8 @@
 
 let product_list = document.querySelector('.product');
+let searchInput = document.querySelector('#search');
+
+searchInput.addEventListener('input', searchProduct)
 //==============Save Data to localStorage=============//
 function saveLocalCategory() {
     localStorage.setItem("data", JSON.stringify(data));
@@ -14,9 +17,10 @@ function loadLocalCategory() {
         saveLocalCategory();
     }
 }
-
+let list_card;
+//==============Function Create Card============//
 function createCard(){
-    let list_card = document.createElement('div');
+    list_card = document.createElement('div');
     list_card.classList.add('list-card');
     let storedata = data.product;
     for (let store of storedata){
@@ -40,7 +44,30 @@ function createCard(){
     product_list.appendChild(list_card)
 }
 
-
+//============ search prodcut =========//
+function searchProduct(){
+    let all_card = document.querySelectorAll('.card');
+    for (let card of all_card){
+        let name_product = card.children[0].textContent.toLowerCase();
+        if (name_product.includes(searchInput.value.toLowerCase())){
+            card.style.display = ''
+        }else{
+            card.style.display = 'none';
+        }
+    }
+    for (let product of data.product){
+        if (searchInput.value == product.id){
+            for (let card of all_card){
+                let name_product = card.children[0].textContent;
+                if (product.name == name_product){
+                    card.style.display = ''
+                }else{
+                    card.style.display = 'none';
+                }
+            }
+        }
+    }
+}
 
 let data = {
     product: [],
