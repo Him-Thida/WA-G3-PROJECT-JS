@@ -1,6 +1,7 @@
 
 let product_list = document.querySelector('.product');
 let searchInput = document.querySelector('#search');
+let list_Checkout = document.querySelector('.list-Checkout');
 
 searchInput.addEventListener('input', searchProduct)
 //==============Save Data to localStorage=============//
@@ -29,12 +30,13 @@ function createCard(){
         let h4 = document.createElement('h4');
         h4.textContent = store.name;
         let spanOne = document.createElement('span');
-        spanOne.textContent = store.quantity;
+        spanOne.textContent = 'In Stock : ' + store.quantity;
         let spanTwo = document.createElement('span');
-        spanTwo.textContent = store.price;
+        spanTwo.textContent = 'Price : ' + store.price;
         let button = document.createElement('button');
         button.textContent = 'ADD TO CARD';
         button.classList.add('addCard');
+        button.addEventListener('click', addProductToCard);
         card.appendChild(h4);
         card.appendChild(spanOne);
         card.appendChild(spanTwo);
@@ -43,7 +45,6 @@ function createCard(){
     }
     product_list.appendChild(list_card)
 }
-
 //============ search prodcut =========//
 function searchProduct(){
     let all_card = document.querySelectorAll('.card');
@@ -67,6 +68,46 @@ function searchProduct(){
             }
         }
     }
+}
+//=============== Checkout Product ==========//
+const checkout = () => {
+    console.log('hello')
+}
+//=============== Add product to card ==========//
+function deleteCheckout(event){
+    event.target.closest('.list-item').remove();
+    console.log('hello')
+}
+//=============== Add product to card ==========//
+function addProductToCard(e){
+    btn = e.target;
+    e.target.removeEventListener('click',addProductToCard);
+    e.target.addEventListener('click', checkout)
+    let cart = e.target.closest('.card').children;
+    let list_item = document.createElement('div');
+    list_item.className = 'list-item'
+    let pOne = document.createElement('p');
+    pOne.textContent = cart[0].textContent;
+    let pTwo = document.createElement('p');
+    pTwo.textContent = '0';
+    let iOne = document.createElement('i');
+    iOne.className = 'material-icons';
+    iOne.textContent = 'add_circle';
+    let pThree = document.createElement('p');
+    pThree.textContent = cart[2].textContent.replace('Price : ', '');
+    let iTwo = document.createElement('i');
+    iTwo.className = 'material-icons';
+    iTwo.textContent = 'remove_circle';
+    let iThree = document.createElement('i');
+    iThree.className = 'material-icons delete';
+    iThree.textContent = 'delete';
+    list_item.appendChild(pOne)
+    list_item.appendChild(iOne)
+    list_item.appendChild(pTwo)
+    list_item.appendChild(iTwo);
+    list_item.appendChild(pThree);
+    list_item.appendChild(iThree);
+    list_Checkout.appendChild(list_item)
 }
 
 let data = {
