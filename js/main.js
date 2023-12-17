@@ -19,7 +19,7 @@ let formAddProduct = document.querySelector('form');
 let addProduct = document.querySelector('#addProduct');
 let tbody = document.querySelector('tbody');
 let inputSearch = document.querySelector('#search');
-let buttonDelte = document.querySelectorAll('.delete');
+let buttonDelete = document.querySelectorAll('.delete');
 let navbar = document.querySelector('nav');
 let aside_left = document.querySelector('.aside-left');
 let saveProductData = document.querySelector('#save');
@@ -30,7 +30,7 @@ let grossInput = document.querySelector('.gross');
 let quantityInput = document.querySelector('.quantity');
 let descriptionInput = document.querySelector('.description');
 let backBtn = document.querySelector('#back');
-let okbtn = document.querySelector('#ok');
+let okBtn = document.querySelector('#ok');
 let alert = document.querySelector('.alert');
 let showDetail = document.querySelector('.showDetail');
 let idPro = document.querySelector('.idPro');
@@ -42,7 +42,7 @@ let pricePro = document.querySelector('.pricePro');
 let grossPricePro = document.querySelector('.grossPricePro');
 let closeBtn = document.querySelector('#close');
 closeBtn.addEventListener('click', hideDetailProduct)
-okbtn.addEventListener('click', okAlert);
+okBtn.addEventListener('click', okAlert);
 backBtn.addEventListener('click', back)
 categoryFilter.addEventListener('change', filterProductWithCategory);
 inputSearch.addEventListener('input', searchText);
@@ -50,11 +50,11 @@ addProduct.addEventListener('click', addProductToList);
 saveProductData.addEventListener('click', saveProduct);
 
 //============== Add eventlistener to btn delete =============//
-for (let btn of buttonDelte) {
+for (let btn of buttonDelete) {
     btn.addEventListener('click', deLete)
 }
 
-//==============Function seart category with filter =============//
+//==============Function search category with filter =============//
 function filterProductWithCategory() {
     for (let tr of tbody.children) {
         if (tr.children[2].textContent == categoryFilter.value) {
@@ -67,7 +67,8 @@ function filterProductWithCategory() {
         }
     }
 }
-//==============Function Auto complete category form localstorage =============//
+
+//==============Function Auto complete category form local storage =============//
 function completeFilterCategory() {
     let categoryName = data.category;
     for (let name of categoryName) {
@@ -79,18 +80,17 @@ function completeFilterCategory() {
         option2.setAttribute('value', name.category);
         categoryFilter.appendChild(option1)
         selectOption.appendChild(option2)
-
     }
 }
 
-//==============Function Delete prodcut name =============//
+//==============Function Delete product name =============//
 function deLete(e) {
-    let namedelete = e.target.closest('tr').children[1].textContent;
+    let nameDelete = e.target.closest('tr').children[1].textContent;
     for (let obj of data.product) {
-        if (obj.name == namedelete) {
+        if (obj.name == nameDelete) {
             data.product.pop(obj);
-            saveLocalCategory()
             e.target.closest('tr').remove();
+            saveLocalCategory();
         }
     }
 
@@ -109,12 +109,11 @@ function detail(e) {
             categoryNamePro.textContent = 'Category Name : ' + loop.category;
             quantityPro.textContent = 'Quantity : ' + loop.quantity;
             pricePro.textContent = 'Price : ' + loop.price;
-            grossPricePro.textContent = 'Grose Price : ' + loop.grossPrice;
+            grossPricePro.textContent = 'Gross Price : ' + loop.grossPrice;
         }
     }
 
 }
-
 
 //==============Function close detail =============//
 function hideDetailProduct() {
@@ -133,11 +132,15 @@ function searchText() {
         }
     };
 };
+
+//==============Function Back from add product =============//
 function back(e) {
     e.preventDefault();
     show()
     formAddProduct.style.display = 'none';
 }
+
+//==============Function For hide when add product, show detail   =============//
 function hide() {
     aside_left.style.background = 'rgb(78, 76, 76)';
     document.body.style.backgroundColor = 'rgb(78, 76, 76)';
@@ -152,6 +155,8 @@ function hide() {
         act.parentElement.style.backgroundColor = 'rgb(78, 76,76)';
     }
 }
+
+//==============Function For show to default GUI   =============//
 function show() {
     aside_left.style.background = '#fff';
     document.body.style.backgroundColor = '#fff';
@@ -166,11 +171,16 @@ function show() {
         act.parentElement.style.backgroundColor = '#fff';
     }
 }
+
+//==============Function to Add product when click button add product   =============//
 function addProductToList(e) {
     hide();
     formAddProduct.style.display = '';
 }
+
+//==============Function For save and create table with click on button save =============//
 function saveProduct(e) {
+    e.preventDefault();
     let store = data.productID;
     if (data.productID == null) {
         store = 1;
@@ -179,9 +189,8 @@ function saveProduct(e) {
         store += 1
         data.productID = store;
     }
-    e.preventDefault();
     let obj = {};
-    if (nameInput.value && selectOption.value && quantityInput.value && priceInput.value !== '') {
+    if (nameInput.value && selectOption.value && quantityInput.value && priceInput.value && grossInput.value && descriptionInput.value !== '') {
         obj.id = store;
         obj.name = nameInput.value;
         obj.category = selectOption.value;
@@ -191,53 +200,7 @@ function saveProduct(e) {
         obj.description = descriptionInput.value;
         data.product.push(obj)
         saveLocalCategory()
-        let tr = document.createElement('tr');
-        let tdId = document.createElement('td');
-        let tdName = document.createElement('td');
-        let tdCategory = document.createElement('td');
-        let tdQuantity = document.createElement('td');
-        let tdPrice = document.createElement('td');
-        let tdGross = document.createElement('td');
-        let tdDes = document.createElement('td');
-        let tdAction = document.createElement("td");
-        tdAction.className = "action";
-        tdAction.setAttribute('id', 'action')
-        let delButton = document.createElement("button");
-        let viewButton = document.createElement("button");
-        let iconDel = document.createElement("i");
-        let spanDel = document.createElement("span");
-        let iconView = document.createElement("i");
-        let spanView = document.createElement("span");
-        viewButton.setAttribute("id", "detail");
-        delButton.setAttribute("id", "delete");
-        delButton.addEventListener("click", deLete);
-        viewButton.addEventListener('click', detail)
-        iconDel.className = "material-icons icons-color";
-        iconView.className = "material-icons icons-color";
-        iconDel.textContent = "delete";
-        spanDel.textContent = "Delete";
-        iconView.textContent = "create";
-        spanView.textContent = "Detail";
-        tdId.textContent = store;
-        tdName.textContent = nameInput.value;
-        tdCategory.textContent = selectOption.value;
-        tdQuantity.textContent = quantityInput.value;
-        tdGross.textContent = grossInput.value + '$';
-        tdPrice.textContent = priceInput.value + '$';
-        tdDes.textContent = descriptionInput.value;
-        delButton.appendChild(iconDel);
-        delButton.appendChild(spanDel);
-        viewButton.appendChild(iconView);
-        viewButton.appendChild(spanView);
-        tdAction.appendChild(delButton);
-        tdAction.appendChild(viewButton);
-        tr.appendChild(tdId);
-        tr.appendChild(tdName);
-        tr.appendChild(tdCategory);
-        tr.appendChild(tdQuantity);
-        tr.appendChild(tdPrice);
-        tr.appendChild(tdAction);
-        tbody.appendChild(tr)
+        createTable()        
         formAddProduct.style.display = 'none';
         show()
         clearInput()
@@ -245,11 +208,16 @@ function saveProduct(e) {
         alert.style.display = '';
     }
 }
+
+//==============Function For Hide alert when click Ok button=============//
 function okAlert(e) {
     e.target.parentElement.style.display = 'none';
 }
+
+//==============Function For Create Table  =============//
 function createTable() {
     let store = data.product;
+    tbody.innerHTML = '';
     for (let element of store) {
         let tr = document.createElement('tr');
         let tdId = document.createElement('td');
@@ -298,6 +266,7 @@ function createTable() {
         tbody.appendChild(tr);
     }
 }
+//==============Function For Clear Input=============//
 function clearInput() {
     nameInput.value = '';
     selectOption.value = '';
@@ -312,4 +281,5 @@ let data = {
     category: [],
     categoryID: null,
 };
+//============== Call loadLocalCategory to local storage   =============//
 loadLocalCategory();
