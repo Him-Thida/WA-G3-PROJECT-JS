@@ -82,6 +82,24 @@ function payProduct(event){
     for (let btn of addBtn){
         btn.addEventListener('click',addProductToCard)
     }
+    for (let item of list_Checkout.children){
+        let namePro = item.children[0].textContent;
+        let qty = item.children[1].children[1].textContent;
+        for (let pro of product_list.children[1].children){
+            if (pro.children[0].textContent == namePro){
+                let store = pro.children[1].textContent.replace('In Stock : ', '');
+                let res = Number(store) - Number(qty);
+                pro.children[1].textContent = 'In Stock : ' + res;
+                for (let local of data.product){
+                    if (local.name === namePro){
+                        local.quantity = res;
+                    }
+                }
+                saveLocalCategory()
+            }
+        }
+    }
+    total.textContent = 0 + '$';
     list_Checkout.innerHTML = '';
 }
 
@@ -102,9 +120,7 @@ const decrementValue = (event) => {
         quantityTotal.textContent = parseInt(quantityTotal.textContent) - 1;
         checkout(pricePro, quantityTotal, totalPro)
     }
-
 };
-
 //=============== increment value product ==========//
 const incrementValue = (event) => {
     let quantityTotal = event.target.previousElementSibling;
@@ -194,7 +210,6 @@ function addProductToCard(e) {
     list_item.appendChild(liFive);
     list_Checkout.appendChild(list_item);
 }
-
 let data = {
     product: [],
     productID: null,
