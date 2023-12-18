@@ -150,14 +150,17 @@ const totalMoney = () => {
 //=============== Calculator Number ==========//
 let calculator = (event) =>{
     let pro = event.target.closest('.card').children[0].textContent;
+    let limitPro = event.target.closest('.card').children[1].textContent.replace('In Stock : ', '');
     let item = list_Checkout.children;
     for (let element of item){
         if (element.children[0].textContent == pro){
             let quantityTotal = element.children[1].children[1];
             let pricePro = element.children[2];
             let totalPro = element.children[3];
-            quantityTotal.textContent = parseInt(quantityTotal.textContent) + 1;
-            checkout(pricePro,quantityTotal, totalPro)
+            if (quantityTotal.textContent < limitPro){
+                quantityTotal.textContent = parseInt(quantityTotal.textContent) + 1;
+                checkout(pricePro,quantityTotal, totalPro)
+            }
         }
     }
 }
