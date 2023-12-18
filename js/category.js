@@ -219,6 +219,7 @@ let data = {
   productID: null,
   category: [],
   categoryID: null,
+  income : 0
 };
 //==============Function for load Data to localStorage=============//
 loadLocalCategory();

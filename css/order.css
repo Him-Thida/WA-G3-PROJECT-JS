@@ -106,7 +106,7 @@ input:hover{
     flex-direction: column;
     justify-content: space-between;
     z-index: 2;
-    left: 73%;
+    margin-top: -60px;
     background: rgb(243, 247, 236);
     padding: 5px;
 }
@@ -139,21 +139,20 @@ ul #qty{
     display: flex;
     justify-content: space-between;
 }
-.list-Checkout ul{
-    display: flex;
-    justify-content: center;
-}
+
 .aside-right .list-item{
     display: flex;
     align-items: center;
     justify-content: space-around;
     border-radius: 3px;
-    height: 50px;
+    height: 60px;
     border: 1px solid orange;
+    background: #fff;
+    margin-top: 5px;
 }
 
 .aside-right .bottom{
-    margin-top: 50px;
+    margin-top: 180px;
 }
 .menu-price{
     height: 50px;
