@@ -74,9 +74,10 @@ function searchProduct() {
 
 //=============== Checkout Product ==========//
 function payProduct(event){
+    let sold = data.bashboard.sold;
     event.preventDefault();
-    let storeTotal = data.income + Number(total.textContent.replace('$',''));
-    data.income = storeTotal;
+    let storeTotal = data.bashboard.income + Number(total.textContent.replace('$',''));
+    data.bashboard.income = storeTotal;
     saveLocalCategory();
     let addBtn = document.querySelectorAll('.addCard');
     for (let btn of addBtn){
@@ -93,6 +94,8 @@ function payProduct(event){
                 for (let local of data.product){
                     if (local.name === namePro){
                         local.quantity = res;
+                        local.sold = Number(local.sold) + Number(qty);
+                        data.bashboard.sold = Number(sold) + Number(qty);
                     }
                 }
                 saveLocalCategory()
@@ -157,7 +160,7 @@ let calculator = (event) =>{
             let quantityTotal = element.children[1].children[1];
             let pricePro = element.children[2];
             let totalPro = element.children[3];
-            if (quantityTotal.textContent < limitPro){
+            if (Number(quantityTotal.textContent) < limitPro){
                 quantityTotal.textContent = parseInt(quantityTotal.textContent) + 1;
                 checkout(pricePro,quantityTotal, totalPro)
             }

@@ -24,8 +24,7 @@ nav img{
 
 .main{
     display: grid;
-    background: #a58383;
-    grid-template-columns: 0.7fr 3fr 1fr;
+    grid-template-columns: 0.7fr 3.1fr 0.7fr;
 }
 .main img{
     width: 30px;
@@ -81,6 +80,38 @@ nav img{
     align-items: center;
     height: 40px;
     padding: 10px;
-    justify-content: space-around;
+    justify-content: space-between;
     color: #fff;
+}
+.aside-center{
+    padding: 5px 10px;
+}
+.aside-center h2{
+    text-align: center;
+    
+}
+.aside-center table{
+    margin-top: 40px;
+    border-collapse: collapse;
+}
+table th{
+    background: orange;
+    color: #fff;
+}
+th,
+td {
+    border: 1px solid orange;
+    width: 220px;
+    height: 40px;
+    text-align: center;
+}
+tbody tr:hover{
+    box-shadow: 0px 0px 4px 2px orange;
+}
+tr:nth-child(even){
+    background: rgb(236, 228, 214);
+}
+td:hover{
+    color: orange;
+    font-size: 18px;
 }

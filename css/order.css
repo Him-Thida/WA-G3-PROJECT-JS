@@ -114,10 +114,8 @@ input:hover{
 .aside-right{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     z-index: 2;
     margin-top: -60px;
-    background: rgb(243, 247, 236);
     padding: 5px;
 }
 .aside-right h4{
@@ -137,8 +135,10 @@ input:hover{
 .aside-right ul li{
     list-style: none;
     text-align: center;
-    background: #fff;
-    height: 40px;
+    /* background: #fff; */
+    background: rgb(243, 247, 236);
+
+    height:40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,9 +160,8 @@ ul #qty{
     background: #fff;
     margin-top: 5px;
 }
-
 .aside-right .bottom{
-    margin-top: 180px;
+    margin-top: 100px;
 }
 .menu-price{
     height: 50px;

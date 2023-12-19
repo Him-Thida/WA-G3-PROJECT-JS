@@ -198,6 +198,7 @@ function saveProduct(e) {
         obj.price = priceInput.value + '$';
         obj.grossPrice = grossInput.value + '$';
         obj.description = descriptionInput.value;
+        obj.sold = 0;
         data.product.push(obj)
         saveLocalCategory()
         createTable()        
