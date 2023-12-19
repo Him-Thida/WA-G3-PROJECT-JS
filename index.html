@@ -64,46 +64,49 @@
                     <tbody></tbody>
                 </table>
             </div>
-            <form action="addProduct" style="display: none">
-                <img id="logo" src="./images/navbar-img/logo.png" />
-                <h3>Add Products</h3>
-                <div class="product-data">
-                    <div class="left">
-                        <div class="flex-column">
-                            <label>Product Name</label>
-                            <input type="text" placeholder="product name" class="name" />
+            <div id="add_product" style="display: none;">
+                <form id="form" action="addProduct">
+                    <img id="logo" src="./images/navbar-img/logo.png" />
+                    <h3>Add Products</h3>
+                    <div class="product-data">
+                        <div class="left">
+                            <div class="flex-column">
+                                <label>Product Name</label>
+                                <input type="text" placeholder="product name" class="name" />
+                            </div>
+                            <div class="flex-column">
+                                <label>Category</label>
+                                <select name="category" class="chooseCategory">
+                                    <option value="">Choose Category</option>
+                                </select>
+                            </div>
+                            <div class="flex-column">
+                                <label>Net price</label>
+                                <input type="number" placeholder="Net Price" class="price" />
+                            </div>
                         </div>
-                        <div class="flex-column">
-                            <label>Category</label>
-                            <select name="category" class="chooseCategory">
-                                <option value="">Choose Category</option>
-                            </select>
-                        </div>
-                        <div class="flex-column">
-                            <label>Net price</label>
-                            <input type="number" placeholder="Net Price" class="price" />
+                        <div class="right">
+                            <div class="flex-column">
+                                <label>Gross price</label>
+                                <input type="number" placeholder="Gross Price" class="gross" />
+                            </div>
+                            <div class="flex-column">
+                                <label>Quantity</label>
+                                <input type="number" placeholder="Quantity" class="quantity" />
+                            </div>
+                            <div class="flex-column">
+                                <label>Descrition</label>
+                                <input type="text" placeholder="Descrition" class="description" />
+                            </div>
                         </div>
                     </div>
-                    <div class="right">
-                        <div class="flex-column">
-                            <label>Gross price</label>
-                            <input type="number" placeholder="Gross Price" class="gross" />
-                        </div>
-                        <div class="flex-column">
-                            <label>Quantity</label>
-                            <input type="number" placeholder="Quantity" class="quantity" />
-                        </div>
-                        <div class="flex-column">
-                            <label>Descrition</label>
-                            <input type="text" placeholder="Descrition" class="description" />
-                        </div>
+                    <div class="action">
+                        <button id="back">Back</button>
+                        <button id="save">Save Product</button>
                     </div>
-                </div>
-                <div class="action">
-                    <button id="back">Back</button>
-                    <button id="save">Save Product</button>
-                </div>
-            </form>
+                </form>
+
+            </div>
             <div class="alert" style="display: none">
                 <div class="alert-left">
                     <i class="material-icons">error_outline</i>
@@ -116,16 +119,18 @@
                 </div>
                 <button id="ok">Ok</button>
             </div>
-            <div class="showDetail" style="display: none">
-                <img src="../images/navbar-img/logo.png" />
-                <h4 class="idPro">Product Id</h4>
-                <h4 class="namePro">Product Name</h4>
-                <h4 class="descriptionPro">Descirption</h4>
-                <h4 class="categoryNamePro">Category Name</h4>
-                <h4 class="quantityPro">Quantity</h4>
-                <h4 class="pricePro">Price</h4>
-                <h4 class="grossPricePro">Grose Price</h4>
-                <button id="close">Close</button>
+            <div id="show-detail" style="display: none;">
+                <div class="showDetail">
+                    <img src="../images/navbar-img/logo.png" />
+                    <h4 class="idPro">Product Id</h4>
+                    <h4 class="namePro">Product Name</h4>
+                    <h4 class="descriptionPro">Descirption</h4>
+                    <h4 class="categoryNamePro">Category Name</h4>
+                    <h4 class="quantityPro">Quantity</h4>
+                    <h4 class="pricePro">Price</h4>
+                    <h4 class="grossPricePro">Grose Price</h4>
+                    <button id="close">Close</button>
+                </div>
             </div>
             <script src="./js/main.js" defer></script>
         </div>

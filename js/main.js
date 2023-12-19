@@ -15,12 +15,11 @@ function loadLocalCategory() {
 }
 //============== Get element from html =============//
 let categoryFilter = document.querySelector(".categories");
-let formAddProduct = document.querySelector('form');
+let form = document.querySelector('#add_product');
 let addProduct = document.querySelector('#addProduct');
 let tbody = document.querySelector('tbody');
 let inputSearch = document.querySelector('#search');
 let buttonDelete = document.querySelectorAll('.delete');
-let navbar = document.querySelector('nav');
 let aside_left = document.querySelector('.aside-left');
 let saveProductData = document.querySelector('#save');
 let selectOption = document.querySelector('.chooseCategory');
@@ -32,7 +31,7 @@ let descriptionInput = document.querySelector('.description');
 let backBtn = document.querySelector('#back');
 let okBtn = document.querySelector('#ok');
 let alert = document.querySelector('.alert');
-let showDetail = document.querySelector('.showDetail');
+let showDetail = document.querySelector('#show-detail');
 let idPro = document.querySelector('.idPro');
 let nameProduct = document.querySelector('.namePro');
 let descriptionPro = document.querySelector('.descriptionPro');
@@ -53,7 +52,6 @@ saveProductData.addEventListener('click', saveProduct);
 for (let btn of buttonDelete) {
     btn.addEventListener('click', deLete)
 }
-
 //==============Function search category with filter =============//
 function filterProductWithCategory() {
     for (let tr of tbody.children) {
@@ -100,7 +98,6 @@ function deLete(e) {
 function detail(e) {
     let namePro = e.target.closest('tr').children[1].textContent;
     showDetail.style.display = '';
-    hide()
     for (let loop of data.product) {
         if (loop.name == namePro) {
             idPro.textContent = 'Product ID : ' + loop.id;
@@ -116,9 +113,9 @@ function detail(e) {
 }
 
 //==============Function close detail =============//
-function hideDetailProduct() {
+function hideDetailProduct(e) {
+    console.log(e.target)
     showDetail.style.display = 'none';
-    show()
 }
 //==============Function search product name =============//
 function searchText() {
@@ -136,46 +133,11 @@ function searchText() {
 //==============Function Back from add product =============//
 function back(e) {
     e.preventDefault();
-    show()
-    formAddProduct.style.display = 'none';
+    form.style.display = 'none';
 }
-
-//==============Function For hide when add product, show detail   =============//
-function hide() {
-    aside_left.style.background = 'rgb(78, 76, 76)';
-    document.body.style.backgroundColor = 'rgb(78, 76, 76)';
-    navbar.style.backgroundColor = 'rgb(78, 76, 76)';
-    addProduct.style.background = 'rgb(78, 76, 76)';
-    addProduct.style.color = 'black';
-    inputSearch.style.backgroundColor = 'rgb(78, 76,76)';
-    categoryFilter.style.backgroundColor = 'rgb(78 , 76, 76)';
-    let action = document.querySelectorAll('.icons-color');
-    for (let act of action) {
-        act.style.backgroundColor = 'rgb(78, 76,76)';
-        act.parentElement.style.backgroundColor = 'rgb(78, 76,76)';
-    }
-}
-
-//==============Function For show to default GUI   =============//
-function show() {
-    aside_left.style.background = '#fff';
-    document.body.style.backgroundColor = '#fff';
-    navbar.style.backgroundColor = '#fff';
-    addProduct.style.background = 'orange';
-    addProduct.style.color = '#fff';
-    inputSearch.style.backgroundColor = '#fff';
-    categoryFilter.style.backgroundColor = '#fff';
-    let action = document.querySelectorAll('.icons-color');
-    for (let act of action) {
-        act.style.backgroundColor = 'orange';
-        act.parentElement.style.backgroundColor = '#fff';
-    }
-}
-
 //==============Function to Add product when click button add product   =============//
-function addProductToList(e) {
-    hide();
-    formAddProduct.style.display = '';
+function addProductToList() {
+    form.style.display = '';
 }
 
 //==============Function For save and create table with click on button save =============//
@@ -202,8 +164,7 @@ function saveProduct(e) {
         data.product.push(obj)
         saveLocalCategory()
         createTable()        
-        formAddProduct.style.display = 'none';
-        show()
+        form.style.display = 'none';
         clearInput()
     } else {
         alert.style.display = '';
@@ -281,7 +242,7 @@ let data = {
     productID: null,
     category: [],
     categoryID: null,
-    bashboard : {sold : 0, income: 0}
+    bashBoard : {sold : 0, income: 0}
 };
 //============== Call loadLocalCategory to local storage   =============//
 loadLocalCategory();
