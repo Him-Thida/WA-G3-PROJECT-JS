@@ -219,7 +219,7 @@ let data = {
   productID: null,
   category: [],
   categoryID: null,
-  income : 0
+  bashboard : {sold : 0, income: 0}
 };
 //==============Function for load Data to localStorage=============//
 loadLocalCategory();

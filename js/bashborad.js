@@ -12,6 +12,13 @@ function loadLocalCategory() {
     }
 }
 loadLocalCategory();
+let data = {
+    product: [],
+    productID: null,
+    category: [],
+    categoryID: null,
+    bashboard : {sold : 0, income: 0}
+};
 
 
 let inCome = document.querySelector('#income');
