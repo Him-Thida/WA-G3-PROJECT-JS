@@ -177,7 +177,7 @@ button .icons-color {
     z-index: 10;
 }
 
-#show-detail{
+#showDetail{
     position: fixed;
     top: 0px;
     left: 0;
@@ -185,9 +185,9 @@ button .icons-color {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 10;
+    
 }
 form {
-    position: fixed;
     top: 90px;
     background: #fff;
     box-shadow: 0px 0px 5px 1px orange;
@@ -198,7 +198,8 @@ form {
     height: 450px;
     width: 60%;
     padding: 20px;
-    left: 19%;
+    margin-top: 30px;
+    margin-left: 19%;
 }
 
 form #logo {
@@ -350,7 +351,7 @@ button:hover {
     height: 90px;
     margin-left: 42%;
 }
-.showDetail button{
+#cancal{
     float: left;
     font-size: 16px;
     color: #fff;
@@ -360,5 +361,5 @@ button:hover {
     border: none;
     border-radius: 5px;
     padding: 5px;
-    margin-left: 81%;
+    margin-left: 75%;
 }

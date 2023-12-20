@@ -31,7 +31,9 @@ let descriptionInput = document.querySelector('.description');
 let backBtn = document.querySelector('#back');
 let okBtn = document.querySelector('#ok');
 let alert = document.querySelector('.alert');
-let showDetail = document.querySelector('#show-detail');
+
+let showDetail = document.querySelector('#showDetail');
+let why = document.querySelector('.showDetail');
 let idPro = document.querySelector('.idPro');
 let nameProduct = document.querySelector('.namePro');
 let descriptionPro = document.querySelector('.descriptionPro');
@@ -39,8 +41,9 @@ let categoryNamePro = document.querySelector('.categoryNamePro');
 let quantityPro = document.querySelector('.quantityPro');
 let pricePro = document.querySelector('.pricePro');
 let grossPricePro = document.querySelector('.grossPricePro');
-let closeBtn = document.querySelector('#close');
-closeBtn.addEventListener('click', hideDetailProduct)
+
+let cancal = document.querySelector('#cancal');
+cancal.addEventListener('click', hideDetailProduct)
 okBtn.addEventListener('click', okAlert);
 backBtn.addEventListener('click', back)
 categoryFilter.addEventListener('change', filterProductWithCategory);
@@ -62,6 +65,7 @@ function filterProductWithCategory() {
         }
         else {
             tr.style.display = 'none';
+
         }
     }
 }
@@ -95,27 +99,29 @@ function deLete(e) {
 };
 
 //==============Function detail product name =============//
-function detail(e) {
+function detail(e) {    
     let namePro = e.target.closest('tr').children[1].textContent;
-    showDetail.style.display = '';
     for (let loop of data.product) {
         if (loop.name == namePro) {
-            idPro.textContent = 'Product ID : ' + loop.id;
-            nameProduct.textContent = 'Product Name : ' + loop.name;
-            descriptionPro.textContent = 'Description : ' + loop.description;
-            categoryNamePro.textContent = 'Category Name : ' + loop.category;
-            quantityPro.textContent = 'Quantity : ' + loop.quantity;
-            pricePro.textContent = 'Price : ' + loop.price;
-            grossPricePro.textContent = 'Gross Price : ' + loop.grossPrice;
+            idPro.innerHTML = 'Product ID : ' + loop.id;
+            nameProduct.innerHTML = 'Product Name : ' + loop.name;
+            descriptionPro.innerHTML = 'Description : ' + loop.description;
+            categoryNamePro.innerHTML = 'Category Name : ' + loop.category;
+            quantityPro.innerHTML = 'Quantity : ' + loop.quantity;
+            pricePro.innerHTML = 'Price : ' + loop.price;
+            grossPricePro.innerHTML = 'Gross Price : ' + loop.grossPrice;
+            console.log(idPro, nameProduct, descriptionPro, categoryNamePro, quantityPro, grossPricePro, pricePro)
+            console.log(why)
         }
     }
+    showDetail.style.display = '';
 
 }
 
 //==============Function close detail =============//
-function hideDetailProduct(e) {
-    console.log(e.target)
+function hideDetailProduct(event) {
     showDetail.style.display = 'none';
+    clearInput()
 }
 //==============Function search product name =============//
 function searchText() {
@@ -163,7 +169,7 @@ function saveProduct(e) {
         obj.sold = 0;
         data.product.push(obj)
         saveLocalCategory()
-        createTable()        
+        createTable()
         form.style.display = 'none';
         clearInput()
     } else {
@@ -175,7 +181,6 @@ function saveProduct(e) {
 function okAlert(e) {
     e.target.parentElement.style.display = 'none';
 }
-
 //==============Function For Create Table  =============//
 function createTable() {
     let store = data.product;
@@ -242,7 +247,7 @@ let data = {
     productID: null,
     category: [],
     categoryID: null,
-    bashBoard : {sold : 0, income: 0}
+    bashBoard: { sold: 0, income: 0 }
 };
 //============== Call loadLocalCategory to local storage   =============//
 loadLocalCategory();
