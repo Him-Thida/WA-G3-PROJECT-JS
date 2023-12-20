@@ -13,16 +13,24 @@ function loadLocalCategory() {
     }
 }
 
+let data = {
+    product: [],
+    productID: null,
+    category: [],
+    categoryID: null,
+    bashBoard : {sold : 0, income: 0}
+};
 loadLocalCategory();
 let inCome = document.querySelector('#income');
 let category = document.querySelector('#category');
 let stock = document.querySelector('#stock');
 let sold = document.querySelector('#sold');
 let tbody = document.querySelector('tbody');
-inCome.textContent = data.bashboard.income + '$';
+inCome.textContent = data.bashBoard.income + '$';
 category.textContent = data.category.length;
-sold.textContent = data.bashboard.sold;
+sold.textContent = data.bashBoard.sold;
 let sum = 0;
+
 //========= Count all prodcut in stock ======//
 for (let sto of data.product) {
     sum += Number(sto.quantity);
@@ -30,30 +38,34 @@ for (let sto of data.product) {
 stock.textContent = sum;
 let row;
 let n = 0;
-let mixValue = data.product[0].sold;
+let index = 0;
+let mixValue = Number(data.product[0].sold);
 
 //======== Find top one produt =======//
 for (let p in data.product) {
-    if (data.product[p].sold > mixValue) {
+    if (Number(data.product[p].sold) > mixValue) {
         mixValue = data.product[p].sold;
-        row = data.product[p];
-        let tr = document.createElement('tr');
-        let tdID = document.createElement('td');
-        let tdName = document.createElement('td');
-        let tdCategory = document.createElement('td');
-        let tdPrice = document.createElement('td');
-        let tdAmount = document.createElement('td');
-        tdID.textContent = row.id
-        n = row.id;
-        tdName.textContent = row.name;
-        tdCategory.textContent = row.category;
-        tdPrice.textContent = row.price;
-        tdAmount.textContent = row.sold;
-        tr.appendChild(tdID)
-        tr.appendChild(tdName)
-        tr.appendChild(tdCategory)
-        tr.appendChild(tdPrice)
-        tr.appendChild(tdAmount);
-        tbody.appendChild(tr)
+        index = p;
+
     }
 }
+row = data.product[index];
+console.log(top)
+let tr = document.createElement('tr');
+let tdID = document.createElement('td');
+let tdName = document.createElement('td');
+let tdCategory = document.createElement('td');
+let tdPrice = document.createElement('td');
+let tdAmount = document.createElement('td');
+tdID.textContent = row.id
+n = row.id;
+tdName.textContent = row.id;
+tdCategory.textContent = row.category;
+tdPrice.textContent = row.price;
+tdAmount.textContent = row.sold;
+tr.appendChild(tdID)
+tr.appendChild(tdName)
+tr.appendChild(tdCategory)
+tr.appendChild(tdPrice)
+tr.appendChild(tdAmount);
+tbody.appendChild(tr)

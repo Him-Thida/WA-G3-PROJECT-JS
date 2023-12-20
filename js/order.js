@@ -76,10 +76,10 @@ function searchProduct() {
 
 //=============== Checkout Product ==========//
 function payProduct(event){
-    let sold = data.bashboard.sold;
     event.preventDefault();
-    let storeTotal = data.bashboard.income + Number(total.textContent.replace('$',''));
-    data.bashboard.income = storeTotal;
+    let sold = data.bashBoard.sold;
+    let storeTotal = data.bashBoard.income + Number(total.textContent.replace('$',''));
+    data.bashBoard.income = storeTotal;
     saveLocalCategory();
     let addBtn = document.querySelectorAll('.addCard');
     for (let btn of addBtn){
@@ -97,7 +97,7 @@ function payProduct(event){
                     if (local.name === namePro){
                         local.quantity = res;
                         local.sold = Number(local.sold) + Number(qty);
-                        data.bashboard.sold = Number(sold) + Number(qty);
+                        data.bashBoard.sold = Number(sold) + Number(qty);
                     }
                 }
                 saveLocalCategory()
@@ -223,7 +223,7 @@ let data = {
     productID: null,
     category: [],
     categoryID: null,
-    bashboard : {sold : 0, income: 0}
+    bashBoard : {sold : 0, income: 0}
 };
 //============== Call loadLocalCategory to local storage   =============//
 loadLocalCategory();

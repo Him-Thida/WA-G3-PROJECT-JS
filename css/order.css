@@ -109,7 +109,7 @@ input:hover {
 .product .card {
     display: flex;
     flex-direction: column;
-    width: 230px;
+    width: 200px;
     justify-content: space-around;
     height: 120px;
     padding: 10px;
@@ -169,7 +169,7 @@ input:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
+    width: 70px;
 }
 
 ul #qty {
