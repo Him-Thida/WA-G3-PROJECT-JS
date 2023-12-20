@@ -33,6 +33,7 @@ let descriptionInput = document.querySelector('.description');
 let backBtn = document.querySelector('#back');
 let okBtn = document.querySelector('#ok');
 let alert = document.querySelector('.alert');
+console.log(alert)
 let showDetail = document.querySelector('#showDetail');
 let idPro = document.querySelector('#idPro');
 let nameProduct = document.querySelector('#namePro');
@@ -169,6 +170,7 @@ function saveProduct(e) {
         clearInput()
     } else {
         alert.style.display = '';
+
     }
 }
 

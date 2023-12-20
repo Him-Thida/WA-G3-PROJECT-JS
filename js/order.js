@@ -76,6 +76,7 @@ function searchProduct() {
 
 //=============== Checkout Product ==========//
 function payProduct(event){
+    console.log(event.target)
     event.preventDefault();
     let sold = data.bashBoard.sold;
     let storeTotal = data.bashBoard.income + Number(total.textContent.replace('$',''));
