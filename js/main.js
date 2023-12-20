@@ -2,6 +2,7 @@
 function saveLocalCategory() {
     localStorage.setItem("data", JSON.stringify(data));
 }
+
 //==============Function Load data from localStorage=============//
 function loadLocalCategory() {
     let loadProducts = JSON.parse(localStorage.getItem("data"));
@@ -13,6 +14,7 @@ function loadLocalCategory() {
         saveLocalCategory();
     }
 }
+
 //============== Get element from html =============//
 let categoryFilter = document.querySelector(".categories");
 let form = document.querySelector('#add_product');
@@ -31,17 +33,14 @@ let descriptionInput = document.querySelector('.description');
 let backBtn = document.querySelector('#back');
 let okBtn = document.querySelector('#ok');
 let alert = document.querySelector('.alert');
-
 let showDetail = document.querySelector('#showDetail');
-let why = document.querySelector('.showDetail');
-let idPro = document.querySelector('.idPro');
-let nameProduct = document.querySelector('.namePro');
-let descriptionPro = document.querySelector('.descriptionPro');
-let categoryNamePro = document.querySelector('.categoryNamePro');
-let quantityPro = document.querySelector('.quantityPro');
-let pricePro = document.querySelector('.pricePro');
-let grossPricePro = document.querySelector('.grossPricePro');
-
+let idPro = document.querySelector('#idPro');
+let nameProduct = document.querySelector('#namePro');
+let descriptionPro = document.querySelector('#descriptionPro');
+let categoryNamePro = document.querySelector('#categoryNamePro');
+let quantityPro = document.querySelector('#quantityPro');
+let pricePro = document.querySelector('#pricePro');
+let grossPricePro = document.querySelector('#grossPricePro');
 let cancal = document.querySelector('#cancal');
 cancal.addEventListener('click', hideDetailProduct)
 okBtn.addEventListener('click', okAlert);
@@ -55,6 +54,7 @@ saveProductData.addEventListener('click', saveProduct);
 for (let btn of buttonDelete) {
     btn.addEventListener('click', deLete)
 }
+
 //==============Function search category with filter =============//
 function filterProductWithCategory() {
     for (let tr of tbody.children) {
@@ -65,7 +65,6 @@ function filterProductWithCategory() {
         }
         else {
             tr.style.display = 'none';
-
         }
     }
 }
@@ -84,7 +83,6 @@ function completeFilterCategory() {
         selectOption.appendChild(option2)
     }
 }
-
 //==============Function Delete product name =============//
 function deLete(e) {
     let nameDelete = e.target.closest('tr').children[1].textContent;
@@ -95,11 +93,10 @@ function deLete(e) {
             saveLocalCategory();
         }
     }
-
 };
 
 //==============Function detail product name =============//
-function detail(e) {    
+function detail(e) {
     let namePro = e.target.closest('tr').children[1].textContent;
     for (let loop of data.product) {
         if (loop.name == namePro) {
@@ -110,19 +107,16 @@ function detail(e) {
             quantityPro.innerHTML = 'Quantity : ' + loop.quantity;
             pricePro.innerHTML = 'Price : ' + loop.price;
             grossPricePro.innerHTML = 'Gross Price : ' + loop.grossPrice;
-            console.log(idPro, nameProduct, descriptionPro, categoryNamePro, quantityPro, grossPricePro, pricePro)
-            console.log(why)
         }
     }
     showDetail.style.display = '';
-
 }
 
 //==============Function close detail =============//
 function hideDetailProduct(event) {
     showDetail.style.display = 'none';
-    clearInput()
 }
+
 //==============Function search product name =============//
 function searchText() {
     let searchText = inputSearch.value.toLowerCase();
@@ -141,6 +135,7 @@ function back(e) {
     e.preventDefault();
     form.style.display = 'none';
 }
+
 //==============Function to Add product when click button add product   =============//
 function addProductToList() {
     form.style.display = '';
@@ -181,6 +176,7 @@ function saveProduct(e) {
 function okAlert(e) {
     e.target.parentElement.style.display = 'none';
 }
+
 //==============Function For Create Table  =============//
 function createTable() {
     let store = data.product;
@@ -233,6 +229,7 @@ function createTable() {
         tbody.appendChild(tr);
     }
 }
+
 //==============Function For Clear Input=============//
 function clearInput() {
     nameInput.value = '';

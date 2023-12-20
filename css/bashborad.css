@@ -1,46 +1,52 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
 }
-nav{
+
+nav {
     display: flex;
     align-items: center;
     padding-left: 30px;
     background: #ffffff;
-    /* box-shadow: 0px 0px 5px 2px orange; */
     position: sticky;
     top: 0;
     z-index: 2;
 }
-nav img{
+
+nav img {
     width: 35px;
     padding: 10px;
 }
 
-.main{
+.main {
     display: grid;
     grid-template-columns: 0.7fr 3.1fr 0.7fr;
 }
-.main img{
+
+.main img {
     width: 30px;
 }
-.main .aside-left{
+
+.main .aside-left {
     height: 100vh;
     padding: 10px;
     background: #fff;
 }
-.main .aside-left ul{
+
+.main .aside-left ul {
     display: flex;
     flex-direction: column;
     color: #fff;
     gap: 10px;
 }
-.main .aside-left ul li{
+
+.main .aside-left ul li {
     display: flex;
     align-items: center;
     list-style: none;
@@ -48,29 +54,35 @@ nav img{
     height: 40px;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 1px 1px 1px 1px #9fd5ce;
 }
-.main .aside-left ul li:hover{
+
+.main .aside-left ul li:hover {
     background: #fff;
+    box-shadow: 1px 1px 1px 1px orange;
+    transition-duration: 0.5s;
 }
-.main .aside-left ul li a:hover{
+
+.main .aside-left ul li a:hover {
     color: orange;
 }
-.main .aside-left ul li a{
+
+.main .aside-left ul li a {
     width: 100%;
     color: #fff;
     display: flex;
     align-items: center;
     text-decoration: none;
 }
-.aside-right{
+
+.aside-right {
     background: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
-.aside-right .stock{
+
+.aside-right .stock {
     background: orange;
     box-shadow: 1px 1px 1px 1px #9fd5ce;
     border-radius: 5px;
@@ -83,21 +95,25 @@ nav img{
     justify-content: space-between;
     color: #fff;
 }
-.aside-center{
+
+.aside-center {
     padding: 5px 10px;
 }
-.aside-center h2{
+
+.aside-center h2 {
     text-align: center;
-    
 }
-.aside-center table{
+
+.aside-center table {
     margin-top: 40px;
     border-collapse: collapse;
 }
-table th{
+
+table th {
     background: orange;
     color: #fff;
 }
+
 th,
 td {
     border: 1px solid orange;
@@ -105,13 +121,16 @@ td {
     height: 40px;
     text-align: center;
 }
-tbody tr:hover{
+
+tbody tr:hover {
     box-shadow: 0px 0px 4px 2px orange;
 }
-tr:nth-child(even){
+
+tr:nth-child(even) {
     background: rgb(236, 228, 214);
 }
-td:hover{
+
+td:hover {
     color: orange;
     font-size: 18px;
 }

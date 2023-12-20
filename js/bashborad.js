@@ -1,8 +1,9 @@
-//==============Save Data to localStorage=============//
+//============== Save Data to localStorage =============//
 function saveLocalCategory() {
     localStorage.setItem("data", JSON.stringify(data));
 }
-//==============Function Load data from localStorage=============//
+
+//============== Function Load data from localStorage =============//
 function loadLocalCategory() {
     let loadProducts = JSON.parse(localStorage.getItem("data"));
     if (loadProducts != undefined) {
@@ -11,6 +12,7 @@ function loadLocalCategory() {
         saveLocalCategory();
     }
 }
+
 loadLocalCategory();
 let inCome = document.querySelector('#income');
 let category = document.querySelector('#category');
@@ -19,18 +21,22 @@ let sold = document.querySelector('#sold');
 let tbody = document.querySelector('tbody');
 inCome.textContent = data.bashboard.income + '$';
 category.textContent = data.category.length;
-stock.textContent = data.product.length;
 sold.textContent = data.bashboard.sold;
+let sum = 0;
+//========= Count all prodcut in stock ======//
+for (let sto of data.product) {
+    sum += Number(sto.quantity);
+}
+stock.textContent = sum;
 let row;
 let n = 0;
 let mixValue = data.product[0].sold;
+
+//======== Find top one produt =======//
 for (let p in data.product) {
     if (data.product[p].sold > mixValue) {
         mixValue = data.product[p].sold;
         row = data.product[p];
-        for (let tr of tbody.children){
-            console.log(tr)
-        }
         let tr = document.createElement('tr');
         let tdID = document.createElement('td');
         let tdName = document.createElement('td');

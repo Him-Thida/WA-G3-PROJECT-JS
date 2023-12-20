@@ -4,11 +4,14 @@ let list_Checkout = document.querySelector(".list-Checkout");
 let total = document.querySelector('#Total');
 let payBtn = document.querySelector('#payMoney');
 searchInput.addEventListener("input", searchProduct);
-payBtn.addEventListener('click', payProduct)
+payBtn.addEventListener('click', payProduct);
+let list_card;
+
 //==============Save Data to localStorage=============//
 function saveLocalCategory() {
     localStorage.setItem("data", JSON.stringify(data));
 }
+
 //==============Function Load data from localStorage=============//
 function loadLocalCategory() {
     let loadProducts = JSON.parse(localStorage.getItem("data"));
@@ -19,7 +22,6 @@ function loadLocalCategory() {
         saveLocalCategory();
     }
 }
-let list_card;
 //==============Function Create Card============//
 function createCard() {
     list_card = document.createElement("div");
@@ -46,6 +48,7 @@ function createCard() {
     }
     product_list.appendChild(list_card);
 }
+
 //============ search product =========//
 function searchProduct() {
     let all_card = document.querySelectorAll(".card");
@@ -70,7 +73,6 @@ function searchProduct() {
         }
     }
 }
-
 
 //=============== Checkout Product ==========//
 function payProduct(event){

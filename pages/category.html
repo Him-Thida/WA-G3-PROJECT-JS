@@ -44,29 +44,32 @@
           <tbody>
           </tbody>
         </table>
-
-        <form action="addCategory" style="display: none;">
-          <img id="logo" src="../images/navbar-img/logo.png">
-          <h3>Add Category</h3>
-          <div>
-            <label for="category"><b>Category Name</b></label>
-            <input type="text" placeholder="Category Name" id="categoryName">
+        <div id="addCategory" style="display: none;">
+          <form action="addCategory">
+            <img id="logo" src="../images/navbar-img/logo.png">
+            <h3>Add Category</h3>
+            <div>
+              <label for="category"><b>Category Name</b></label>
+              <input type="text" placeholder="Category Name" id="categoryName">
+            </div>
+            <div>
+              <label for="Descirption"><b>Descirption</b></label>
+              <input type="text" placeholder="Descirption" id="categoryDescription">
+            </div>
+            <div>
+              <button id="back">Cancal</button>
+              <button id="save-category">Save</button>
+            </div>
+          </form>
+        </div>
+        <div id="catDetail" style="display: none;">
+          <div class="showDetail">
+            <img src="../images/navbar-img/logo.png">
+            <h4 class="id">Category Id</h4>
+            <h4 class="name">Category Name</h4>
+            <h4 class="description">Descirption</h4>
+            <button id="close">Cancal</button>
           </div>
-          <div>
-            <label for="Descirption"><b>Descirption</b></label>
-            <input type="text" placeholder="Descirption" id="categoryDescription">
-          </div>
-          <div>
-            <button id="back">Cancal</button>
-            <button id="save-category">Save</button>
-          </div>
-        </form>
-        <div class="showDetail" style="display: none;">
-          <img src="../images/navbar-img/logo.png">
-          <h4 class="id">Category Id</h4>
-          <h4 class="name">Category Name</h4>
-          <p class="description">Descirption</p>
-          <button id="close">Close</button>
         </div>
       </div>
     </div>
@@ -74,5 +77,4 @@
   <script src="../js/category.js" defer></script>
   </div>
 </body>
-
 </html>

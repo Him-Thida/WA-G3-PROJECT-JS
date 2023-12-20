@@ -1,16 +1,15 @@
 const table = document.querySelector("table");
-let tbody = document.querySelector("tbody");
-let aside_left = document.querySelector('.aside-left');
+const tbody = document.querySelector("tbody");
 const aside_right = document.querySelector(".aside-right");
 const form = document.querySelector("form");
+const formAddCategory = document.querySelector('#addCategory');
 const btnAdd = document.querySelector("#addProduct");
 const saveBtn = document.querySelector("#save-category");
 const descriptionCategory = document.querySelector("#categoryDescription");
 const nameCategory = document.querySelector("#categoryName");
 const search = document.querySelector("#search");
 const backBtn = document.querySelector("#back");
-let navbar = document.querySelector('nav');
-const detailCategory = document.querySelector('.showDetail');
+const detailCategory = document.querySelector('#catDetail');
 const close = document.querySelector('#close');
 close.addEventListener('click', closeDetail);
 btnAdd.addEventListener("click", addCategory);
@@ -21,12 +20,10 @@ let i = 0;
 let NumberIDcategory = 0;
 //================== Function close the product detail =============//
 function closeDetail(e) {
-  e.target.parentElement.style.display = 'none';
-  show()
+  detailCategory.style.display = 'none';
 }
 //================== Function Detail about product ===============//
 function showDetail(e) {
-  hide()
   detailCategory.style.display = '';
   let categoryInformation = e.target.closest('tr').children[1].textContent;
   let categoryListName = data.category;
@@ -35,7 +32,6 @@ function showDetail(e) {
   let des = document.querySelector('.description');
   for (let i of categoryListName) {
     if (categoryInformation == i.category) {
-      console.log(i)
       id.textContent = 'Category Id : ' + i.id;
       name.textContent = 'Category Name : ' + i.category;
       des.textContent = 'Descirption : ' + i.description;
@@ -51,9 +47,7 @@ function clearForm() {
 //==============Function back to list of Category=============//
 function backCategory(e) {
   e.preventDefault();
-  table.style.display = "";
-  form.style.display = "none";
-  show()
+  formAddCategory.style.display = "none";
   clearForm();
 }
 
@@ -97,51 +91,15 @@ function deleteCategory(e) {
   }
 }
 
-
-//======== Hide Element =======//
-function hide() {
-  aside_left.style.background = 'rgb(78, 76, 76)';
-  document.body.style.backgroundColor = 'rgb(78, 76, 76)';
-  navbar.style.backgroundColor = 'rgb(78, 76, 76)';
-  btnAdd.style.backgroundColor = 'rgb(78, 76, 66)';
-  btnAdd.style.color = '#000';
-  search.style.background = 'rgb(78, 76, 66)';
-  aside_left.setAttribute('style', 'box-shadow: 0px 0px 0px 0px');
-  let action = document.querySelectorAll('.icons-color');
-  for (let act of action) {
-    act.style.backgroundColor = 'rgb(78, 76, 66)';
-    act.parentElement.style.backgroundColor = 'rgb(78, 76, 66)';
-  }
-
-}
-//============ Show Element ========//
-function show() {
-  aside_left.style.background = '#fff';
-  document.body.style.backgroundColor = '#fff';
-  navbar.style.backgroundColor = '#fff';
-  btnAdd.style.color = '#fff';
-  btnAdd.style.backgroundColor = 'orange';
-  search.style.background = '#fff';
-  aside_left.setAttribute('style', 'box-shadow: 0px 3px 2px 2px orange');
-  let action = document.querySelectorAll('.icons-color');
-  for (let act of action) {
-    act.style.backgroundColor = 'orange';
-    act.parentElement.style.backgroundColor = '#fff';
-  }
-}
 //==============Function add category=============//
 function addCategory() {
-  form.style.display = "";
-  hide()
+  formAddCategory.style.display = "";
 }
 
 //================= Function To add category name and save to local storage ============//
 function saveCategory(event) {
   event.preventDefault();
-  aside_left.style.background = '#fff'
-  document.body.style.backgroundColor = '#fff';
-  document.body.style.color = '#000';
-  form.style.display = "none";
+  formAddCategory.style.display = "none";
   let run = true;
   let i = 0;
   let listNameOfCategory = data.category;
@@ -172,8 +130,8 @@ function saveCategory(event) {
     run = true;
     clearForm();
   }
-  show()
 }
+
 //==============Function craete category list as table=============//
 function createTablerow() {
   let storeCategory = data.category;
@@ -214,12 +172,14 @@ function createTablerow() {
     tbody.appendChild(row);
   }
 }
+
 let data = {
   product: [],
   productID: null,
   category: [],
   categoryID: null,
-  bashboard : {sold : 0, income: 0}
+  bashboard: { sold: 0, income: 0 }
 };
+
 //==============Function for load Data to localStorage=============//
 loadLocalCategory();
